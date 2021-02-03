@@ -1,0 +1,2122 @@
+@charset "UTF-8";
+/****************************************\
+$ClassicForm
+/****************************************/
+.classicForm {
+  padding-left: 2.5%;
+  width: 80%;
+}
+.classicForm .form-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.classicForm label {
+  padding-right: 5%;
+  box-sizing: border-box;
+  margin-bottom: 3%;
+  width: 35%;
+  text-align: right;
+}
+.classicForm label + input {
+  background: #dce2ff;
+  box-sizing: border-box;
+  padding-left: 10px;
+  margin-bottom: 3%;
+  width: 75%;
+  border: solid 0;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.classicForm label.left {
+  text-align: left;
+}
+.classicForm label + textarea {
+  background: #dce2ff;
+  box-sizing: border-box;
+  margin-bottom: 3%;
+  max-width: 100%;
+  width: 100%;
+  border: solid 0;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  height: 40vh;
+  padding: 4%;
+  margin-left: 25%;
+  font-size: 1.2vw;
+}
+.classicForm label + .BBtextarea {
+  max-width: 200%;
+  width: 100%;
+}
+.classicForm input + label {
+  width: 95%;
+  text-align: left;
+}
+.classicForm input[type=submit] {
+  margin: 0;
+  border: none;
+  background: #273c75;
+  color: white;
+  padding: 2%;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  clear: both;
+}
+.classicForm input[type=file] {
+  font-size: 0.5em;
+}
+.classicForm input[type=password] {
+  font-size: 0.6em;
+  padding: 0.2em 2%;
+}
+.classicForm input:-webkit-autofill {
+  background: #dce2ff;
+}
+.classicForm p {
+  color: #e84118;
+  clear: both;
+}
+.classicForm .form-error {
+  color: red;
+  float: right;
+}
+
+/****************************************\
+$ClassicTable
+/****************************************/
+table.classicTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+table.classicTable thead {
+  background: #3C769D;
+}
+table.classicTable thead th {
+  padding: 1vh 1%;
+}
+table.classicTable tbody tr:nth-of-type(2n) {
+  background: #dce2ff;
+}
+table.classicTable tbody tr:nth-of-type(2n+1) {
+  background: #F5F5F5;
+}
+table.classicTable tbody td {
+  padding: 1vh 1%;
+}
+
+/****************************************\
+$Button
+/****************************************/
+.button.button-1, .button btn-1 {
+  padding: 1%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5vh;
+}
+.button:link, .button:visited, .button {
+  text-decoration: none;
+  color: black;
+}
+
+.simple-scollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.simple-scollbar::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.simple-scollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(5, 5, 5, 0.2);
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col-1 {
+  width: 5%;
+}
+
+.col-2 {
+  width: 10%;
+}
+
+.col-3 {
+  width: 15%;
+}
+
+.col-4 {
+  width: 20%;
+}
+
+.col-5 {
+  width: 25%;
+}
+
+.col-6 {
+  width: 30%;
+}
+
+.col-7 {
+  width: 35%;
+}
+
+.col-8 {
+  width: 40%;
+}
+
+.col-9 {
+  width: 45%;
+}
+
+.col-10 {
+  width: 50%;
+}
+
+.col-11 {
+  width: 55%;
+}
+
+.col-12 {
+  width: 60%;
+}
+
+.col-13 {
+  width: 65%;
+}
+
+.col-14 {
+  width: 70%;
+}
+
+.col-15 {
+  width: 75%;
+}
+
+.col-16 {
+  width: 80%;
+}
+
+.col-17 {
+  width: 85%;
+}
+
+.col-18 {
+  width: 90%;
+}
+
+.col-19 {
+  width: 95%;
+}
+
+.col-20 {
+  width: 100%;
+}
+
+.p-col-1 {
+  margin-left: 5%;
+}
+
+.p-col-2 {
+  margin-left: 10%;
+}
+
+.p-col-3 {
+  margin-left: 15%;
+}
+
+.p-col-4 {
+  margin-left: 20%;
+}
+
+.p-col-5 {
+  margin-left: 25%;
+}
+
+.p-col-6 {
+  margin-left: 30%;
+}
+
+.p-col-7 {
+  margin-left: 35%;
+}
+
+.p-col-8 {
+  margin-left: 40%;
+}
+
+.p-col-9 {
+  margin-left: 45%;
+}
+
+.p-col-10 {
+  margin-left: 50%;
+}
+
+.p-col-11 {
+  margin-left: 55%;
+}
+
+.p-col-12 {
+  margin-left: 60%;
+}
+
+.p-col-13 {
+  margin-left: 65%;
+}
+
+.p-col-14 {
+  margin-left: 70%;
+}
+
+.p-col-15 {
+  margin-left: 75%;
+}
+
+.p-col-16 {
+  margin-left: 80%;
+}
+
+.p-col-17 {
+  margin-left: 85%;
+}
+
+.p-col-18 {
+  margin-left: 90%;
+}
+
+.p-col-19 {
+  margin-left: 95%;
+}
+
+.p-col-20 {
+  margin-left: 100%;
+}
+
+.col-05 {
+  width: 2.5%;
+}
+
+.p-col-05 {
+  margin-left: 2.5%;
+}
+
+.alert {
+  padding: 2%;
+  color: white;
+}
+.alert.alert-success {
+  background: darkgreen;
+}
+.alert.alert-error {
+  background: darkred;
+}
+
+/*********************************************************************************\
+$Grille
+\*********************************************************************************/
+/*********************************************************************************\
+$General
+\*********************************************************************************/
+/*********************************************************************************\
+$Boutons
+\*********************************************************************************/
+/*********************************************************************************\
+$Elements de layout
+\*********************************************************************************/
+/*********************************************************************************\
+$Hamburgers
+\*********************************************************************************/
+/*********************************************************************************\
+$Menus
+\*********************************************************************************/
+/*********************************************************************************\
+$Panneaux latéral
+\*********************************************************************************/
+/*********************************************************************************\
+$Sliders
+\*********************************************************************************/
+/*******************************************************************\
+  Style du Bouton
+\*******************************************************************/
+/*****************************************************************\
+|*********************Style général du bouton*********************|
+\*****************************************************************/
+a.btn {
+  cursor: pointer;
+  padding: 0 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.91em;
+  min-height: 42px;
+  display: inline-block;
+  line-height: 42px;
+  background: #3498db;
+  white-space: normal;
+  margin: auto;
+  border: solid #3498db 2px;
+}
+
+a.btn.round {
+  border-radius: 21px;
+}
+
+a.btn.rounded {
+  border-radius: 7px;
+}
+
+a.btn:visited, a.btn:link {
+  color: white;
+  text-decoration: none;
+}
+
+/*****************************************************************\
+|**************************Bouton Style 1*************************|
+\*****************************************************************/
+a.btn.style1 {
+  border: outset #3498db 2px;
+}
+
+a.btn.style1:hover {
+  border: solid #3498db 2px;
+  transform: translateX(2px) translateY(2px);
+}
+
+/*****************************************************************\
+|**************************Bouton Style 2*************************|
+\*****************************************************************/
+a.btn.style2 {
+  transition: all 0.5s ease;
+}
+
+a.btn.style2:hover {
+  background: #2980b9;
+  border-color: #2980b9;
+}
+
+/*****************************************************************\
+|**************************Bouton Style 3*************************|
+\*****************************************************************/
+a.btn.style3 {
+  transition: all 0.5s ease;
+  border-color: #3498db;
+}
+
+a.btn.style3:hover {
+  background: white;
+  border-color: #3498db;
+  color: #3498db;
+}
+
+/*****************************************************************\
+|**************************Bouton Style 4*************************|
+\*****************************************************************/
+a.btn.style4 {
+  transition: all 0.5s ease;
+}
+
+a.btn.style4:hover {
+  color: #2980b9;
+}
+
+/*****************************************************************\
+|**************************Bouton Style 5*************************|
+\*****************************************************************/
+a.btn.style5 {
+  transition: all 0.5s ease;
+  border-color: white;
+}
+
+a.btn.style5:hover {
+  color: #2980b9;
+}
+
+/*****************************************************************\
+|*****************************Contenu*****************************|
+\*****************************************************************/
+.button_content {
+  opacity: 0;
+  height: 0;
+}
+
+.active + .button_content {
+  opacity: 1;
+  height: auto;
+}
+
+/*********************************************************************************\
+$Grille
+\*********************************************************************************/
+/*********************************************************************************\
+$General
+\*********************************************************************************/
+/*********************************************************************************\
+$Boutons
+\*********************************************************************************/
+/*********************************************************************************\
+$Elements de layout
+\*********************************************************************************/
+/*********************************************************************************\
+$Hamburgers
+\*********************************************************************************/
+/*********************************************************************************\
+$Menus
+\*********************************************************************************/
+/*********************************************************************************\
+$Panneaux latéral
+\*********************************************************************************/
+/*********************************************************************************\
+$Sliders
+\*********************************************************************************/
+/*******************************************************************\
+  Style du menu Hamburger
+\*******************************************************************/
+/*******************************************************************\
+  $General
+\*******************************************************************/
+.hamburger {
+  height: 54px;
+  width: 54px;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 50% 50%;
+}
+.hamburger span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  width: 22px;
+  display: block;
+  background: #FFF;
+  transform: translateX(-50%) translateY(-50%);
+}
+.hamburger span::after, .hamburger span::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #FFF;
+  transform: translateY(-6px);
+  transition: transform 0.6s;
+}
+.hamburger span::after {
+  transform: translateY(6px);
+}
+.hamburger:hover span::before {
+  transform: translateY(-8px);
+}
+.hamburger:hover span::after {
+  transform: translateY(8px);
+}
+
+/*******************************************************************\
+  $Hamburger Rotate
+\*******************************************************************/
+.hamburger-rotate {
+  transition: transform 0.6s;
+}
+.hamburger-rotate span::before, .hamburger-rotate span::after {
+  transform-origin: 50% 50%;
+}
+.hamburger-rotate span {
+  transition: background 0.6s;
+}
+.hamburger-rotate svg {
+  fill: #000;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 165;
+  stroke-dashoffset: 165;
+  transition: stroke-dashoffset 0.6s, transform 0.6s;
+}
+.hamburger-rotate.is-opened {
+  transform: rotate(90deg);
+}
+.hamburger-rotate.is-opened svg {
+  transform: rotate(-90deg);
+  stroke-dashoffset: 0;
+}
+
+/*******************************************************************\
+  $Hamburger Cross Rotate
+\*******************************************************************/
+.hamburger-cross-rotate {
+  transition: transform 0.6s;
+}
+.hamburger-cross-rotate span::before, .hamburger-cross-rotate span::after {
+  transform-origin: 50% 50%;
+}
+.hamburger-cross-rotate span {
+  transition: background 0.6s;
+}
+.hamburger-cross-rotate svg {
+  fill: #000;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 165;
+  stroke-dashoffset: 165;
+  transition: stroke-dashoffset 0.6s, transform 0.6s;
+}
+.hamburger-cross-rotate.is-opened {
+  transform: rotate(180deg);
+}
+.hamburger-cross-rotate.is-opened span {
+  background: transparent;
+}
+.hamburger-cross-rotate.is-opened span::before {
+  transform: translateY(0) rotate(45deg) !important;
+}
+.hamburger-cross-rotate.is-opened span::after {
+  transform: translateY(0) rotate(-45deg) !important;
+}
+.hamburger-cross-rotate.is-opened svg {
+  transform: rotate(-180deg);
+  stroke-dashoffset: 0;
+}
+
+/*******************************************************************\
+  $Hamburger Cross Retract
+\*******************************************************************/
+.hamburger-cross-retract {
+  transition: transform 0.6s;
+}
+.hamburger-cross-retract span::before, .hamburger-cross-retract span::after {
+  transform-origin: 50% 50%;
+  transition: transform 0.6s, animation 0.6s;
+}
+.hamburger-cross-retract span {
+  transition: background 0.6s, transform 0.6s;
+}
+.hamburger-cross-retract svg {
+  fill: #000;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 165;
+  stroke-dashoffset: 165;
+  transition: stroke-dashoffset 0.6s, transform 0.6s;
+}
+.hamburger-cross-retract.is-opened span {
+  background: transparent;
+}
+.hamburger-cross-retract.is-opened span::before, .hamburger-cross-retract.is-opened span::after {
+  transition: transform 0.6s;
+}
+.hamburger-cross-retract.is-opened span::before {
+  animation: cross-retract-right 0.6s;
+  animation-fill-mode: forwards;
+}
+.hamburger-cross-retract.is-opened span::after {
+  animation: cross-retract-left 0.6s;
+  animation-fill-mode: forwards;
+}
+.hamburger-cross-retract.is-opened svg {
+  stroke-dashoffset: 0;
+}
+.hamburger-cross-retract.is-closed span::before, .hamburger-cross-retract.is-closed span::after {
+  transition: transform 0.6s;
+}
+.hamburger-cross-retract.is-closed span::before {
+  animation: cross-retract-right-out 0.6s;
+}
+.hamburger-cross-retract.is-closed span::after {
+  animation: cross-retract-left-out 0.6s;
+}
+
+@keyframes cross-retract-left {
+  40% {
+    transform: translateY(0px);
+  }
+  80% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes cross-retract-right {
+  40% {
+    transform: translateY(0px);
+  }
+  80% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes cross-retract-left-out {
+  100% {
+    transform: translateY(6px);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes cross-retract-right-out {
+  100% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(-45deg);
+  }
+}
+/*******************************************************************\
+  $Hamburger SVG
+\*******************************************************************/
+.hamburger-svg {
+  transition: transform 0.6s;
+}
+.hamburger-svg span::before, .hamburger-svg span::after {
+  transform-origin: 100% 50%;
+}
+.hamburger-svg span {
+  background: #FFFFFF;
+  transition: background 0.6s steps(1, end);
+}
+.hamburger-svg svg {
+  opacity: 0;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 22 230;
+  transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s, opacity 0.6s steps(1, end);
+}
+.hamburger-svg.is-opened span {
+  background: transparent;
+  transition: background 0.6s steps(1, start);
+}
+.hamburger-svg.is-opened span::before {
+  transform: translateX(-3px) translateY(-8px) rotate(-45deg) !important;
+}
+.hamburger-svg.is-opened span::after {
+  transform: translateX(-3px) translateY(8px) rotate(45deg) !important;
+}
+.hamburger-svg.is-opened svg {
+  opacity: 1;
+  transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s, opacity 0.6s steps(1, start);
+  animation: svg-animation 0.6s;
+  animation-fill-mode: forwards;
+}
+.hamburger-svg.is-closed svg {
+  animation: svg-animation-out 0.6s;
+}
+
+@keyframes svg-animation {
+  40% {
+    stroke-dasharray: 22 230;
+  }
+  60% {
+    stroke-dashoffset: -65;
+  }
+  100% {
+    stroke-dashoffset: -65;
+    stroke-dasharray: 160;
+  }
+}
+@keyframes svg-animation-out {
+  0% {
+    stroke-dashoffset: -65;
+    stroke-dasharray: 160;
+  }
+  40% {
+    stroke-dashoffset: -65;
+  }
+  60% {
+    stroke-dasharray: 22 230;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+/*******************************************************************\
+  $Hamburger Arrow Right
+\*******************************************************************/
+.hamburger-arrow-right {
+  transition: transform 0.6s;
+}
+.hamburger-arrow-right span::before, .hamburger-arrow-right span::after {
+  transform-origin: 0% 50%;
+}
+.hamburger-arrow-right span, .hamburger-arrow-right span::after, .hamburger-arrow-right span::before {
+  transition: width 0.6s, transform 0.6s;
+}
+.hamburger-arrow-right svg {
+  fill: #000;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 165;
+  stroke-dashoffset: 165;
+  transition: stroke-dashoffset 0.8s, transform 0.6s;
+}
+.hamburger-arrow-right.is-opened {
+  transform: rotate(180deg);
+}
+.hamburger-arrow-right.is-opened span::before {
+  transform: translateY(0) rotate(-45deg) !important;
+  width: 50%;
+}
+.hamburger-arrow-right.is-opened span::after {
+  transform: translateY(0) rotate(45deg) !important;
+  width: 50%;
+}
+.hamburger-arrow-right.is-opened svg {
+  transform: rotate(-180deg);
+  stroke-dashoffset: 0;
+}
+
+/*******************************************************************\
+  $Hamburger Arrow Left
+\*******************************************************************/
+.hamburger-arrow-left {
+  transition: transform 0.6s;
+}
+.hamburger-arrow-left span::before, .hamburger-arrow-left span::after {
+  transform-origin: 100% 50%;
+}
+.hamburger-arrow-left span, .hamburger-arrow-left span::after, .hamburger-arrow-left span::before {
+  transition: width 0.6s, transform 0.6s;
+}
+.hamburger-arrow-left svg {
+  fill: #000;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 165;
+  stroke-dashoffset: -165;
+  transition: stroke-dashoffset 0.8s, transform 0.6s;
+}
+.hamburger-arrow-left.is-opened {
+  transform: rotate(-180deg);
+}
+.hamburger-arrow-left.is-opened span::before {
+  transform: translateX(10px) translateY(0) rotate(45deg) !important;
+  width: 50%;
+}
+.hamburger-arrow-left.is-opened span::after {
+  transform: translateX(10px) translateY(0) rotate(-45deg) !important;
+  width: 50%;
+}
+.hamburger-arrow-left.is-opened svg {
+  stroke-dashoffset: 0;
+}
+
+/*******************************************************************\
+  $Hamburger Draw
+\*******************************************************************/
+.hamburger-draw {
+  transition: width 0.6s;
+}
+.hamburger-draw span, .hamburger-draw span::after, .hamburger-draw span::before {
+  transition: width 0.6s, transform 0.6s;
+}
+.hamburger-draw span::before {
+  transform-origin: 0% 50%;
+  transform: translateY(-12px);
+}
+.hamburger-draw span {
+  transform: translateY(6px) translateX(-11px);
+}
+.hamburger-draw span::after {
+  transform-origin: 0% 50%;
+  transform: translateY(-6px);
+}
+.hamburger-draw svg {
+  fill: #000;
+  stroke-width: 2px;
+  stroke: #FFF;
+  stroke-dasharray: 165;
+  stroke-dashoffset: -165;
+  transition: stroke-dashoffset 0.8s, transform 0.6s;
+}
+.hamburger-draw.is-opened span {
+  animation: cross-drawn-mid 1s;
+  animation-fill-mode: forwards;
+}
+.hamburger-draw.is-opened span::before {
+  transition-delay: 0s !important;
+  animation: cross-drawn-left 1s;
+  animation-fill-mode: forwards;
+}
+.hamburger-draw.is-opened span::after {
+  transition-delay: 0s !important;
+  animation: cross-drawn-right 1s;
+  animation-fill-mode: forwards;
+}
+.hamburger-draw.is-closed span {
+  animation: cross-drawn-mid-out 1s;
+  animation-fill-mode: forwards;
+}
+.hamburger-draw.is-closed span::before {
+  transition-delay: 0s !important;
+  animation: cross-drawn-left-out 1s;
+  animation-fill-mode: forwards;
+}
+.hamburger-draw.is-closed span::after {
+  transition-delay: 0s !important;
+  animation: cross-drawn-right-out 1s;
+  animation-fill-mode: forwards;
+}
+.hamburger-draw:hover span::after {
+  transform: translateY(-6px);
+}
+.hamburger-draw:hover span::before {
+  transform: translateY(-12px);
+}
+
+@keyframes cross-drawn-mid {
+  0% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  20% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  40% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 0;
+  }
+  41% {
+    transform: translateY(6px) translateX(-11px) rotate(90deg);
+    width: 0;
+  }
+  57% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  60% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  100% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+}
+@keyframes cross-drawn-left {
+  0% {
+    transform: translateY(-12px);
+    width: 22px;
+  }
+  35% {
+    transform: translateY(-12px) rotate(0deg);
+    width: 0;
+  }
+  45% {
+    transform: translateY(8px) translateX(3px) rotate(0deg);
+    width: 0;
+  }
+  46% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  50% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  80% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+  100% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+}
+@keyframes cross-drawn-right {
+  0% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  10% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  45% {
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+  }
+  45% {
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+  }
+  46% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  60% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  90% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+  100% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+}
+@keyframes cross-drawn-mid-out {
+  100% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  80% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  46% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 0;
+  }
+  45% {
+    transform: translateY(6px) translateX(-11px) rotate(90deg);
+    width: 0;
+  }
+  43% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  40% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  0% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+}
+@keyframes cross-drawn-left-out {
+  100% {
+    transform: translateY(-12px);
+    width: 22px;
+  }
+  65% {
+    transform: translateY(-12px) rotate(0deg);
+    width: 0;
+  }
+  55% {
+    transform: translateY(8px) translateX(3px) rotate(0deg);
+    width: 0;
+  }
+  54% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  50% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  20% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+  0% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+}
+@keyframes cross-drawn-right-out {
+  100% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  90% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  55% {
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+  }
+  54% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  40% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  10% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+  0% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+}
+/*******************************************************************\
+  $Hamburger Content
+\*******************************************************************/
+.hamburger_content {
+  transition: opacity 0.6s ease-in-out !important;
+  opacity: 0;
+  height: 0;
+}
+
+.is-opened + .hamburger_content {
+  transition: opacity 0.6s ease-in-out !important;
+  opacity: 1;
+  height: auto;
+}
+
+.is-closed + .hamburger_content {
+  transition: opacity 0.6s ease-in-out !important;
+  opacity: 0;
+  display: none;
+  height: 0;
+}
+
+.hexagon, .hexagon > .border {
+  width: 10vw;
+  height: 10vw;
+  background: #292929;
+  overflow: hidden;
+  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.5s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hexagon .iconContent {
+  max-width: 150%;
+  max-height: 150%;
+  height: 100%;
+}
+.hexagon .iconContent * {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+}
+
+.hexagon > .border {
+  width: 90%;
+  height: 90%;
+  background-color: #1abc9c;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.hexagon.opened {
+  z-index: 100000;
+}
+
+.hexagon > :not(.border), .hexagon > .border > span {
+  transition: all 0.5s;
+}
+
+.hexagon.opened > :not(.border), .hexagon.opened > .border > span {
+  transform: rotate(-28.5deg);
+}
+
+.hexagon.animate:hover {
+  animation: hexa-pulse 1.5s infinite;
+}
+
+.hexagon.animate.opened:hover {
+  animation: none;
+}
+
+.hexagon > .openedContent, .hexagon > .border > .openedContent {
+  transition: all 0.5s;
+  display: none;
+}
+
+.hexagon.opened > .openedContent, .hexagon.opened > .border > .openedContent {
+  transition: all 0.5s;
+  display: block;
+  transform: rotate(29deg);
+  width: 100%;
+  height: 100%;
+}
+
+.hexagon.opened > .iconContent, .hexagon.opened > .border > .iconContent {
+  display: none;
+}
+
+@keyframes hexa-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.hexa-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.hexa-container .left .hexa-row, .hexa-container .left {
+  justify-self: flex-start;
+}
+.hexa-container .right .hexa-row, .hexa-container .right {
+  justify-self: flex-end;
+}
+
+.hexa-row {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+
+#editor-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  background: #e0e0e0;
+}
+#editor-actions li {
+  width: 7%;
+  padding: 0.5%;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+#editor-actions li a, #editor-actions li a:link, #editor-actions li a:hover, #editor-actions li a:visited {
+  color: black;
+  width: 100%;
+  height: 100%;
+  border: 0.5px solid black;
+  text-align: center;
+  -webkit-border-radius: 0.3vw;
+  -moz-border-radius: 0.3vw;
+  border-radius: 0.3vw;
+  padding: 10%;
+  box-sizing: border-box;
+}
+#editor-actions li a:hover, #editor-actions li a:link:hover, #editor-actions li a:hover:hover, #editor-actions li a:visited:hover {
+  background: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+#editor-actions li:first-of-type {
+  width: 15%;
+}
+#editor-actions li:nth-of-type(2) {
+  width: 15%;
+}
+#editor-actions li:hover {
+  transform: scale(1);
+}
+#editor-actions li input, #editor-actions li select {
+  font-size: 1.3vw;
+}
+
+#content-edit {
+  position: relative;
+  min-height: 100vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+  background: #f4f4f4;
+  padding: 1.5%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#content-edit .popup {
+  top: 0;
+  left: 40%;
+  position: fixed;
+  width: 20%;
+  padding: 1vw;
+  z-index: 10000;
+  border-radius: 0 0 1vw 1vw;
+  background-color: #dce2ff;
+  text-align: center;
+}
+#content-edit .popup input {
+  width: 50%;
+  min-height: 5vh;
+}
+#content-edit .popup .widgets {
+  display: flex;
+  justify-content: space-around;
+}
+#content-edit .addBlock {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid 2px;
+  border-radius: 5px;
+}
+#content-edit .addBlock i {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#content-edit .addBlock i:hover {
+  transform: scale(1.2);
+}
+#content-edit .tab {
+  width: 100%;
+  position: relative;
+  border: solid 2px;
+  border-radius: 5px;
+  margin-bottom: 1vh;
+}
+#content-edit .tab .tabmenu {
+  position: absolute;
+  right: 0.3vw;
+  top: 0.3vw;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#content-edit .tab .tabmenu:hover {
+  transform: scale(1.2);
+}
+#content-edit .tab .tab_menu {
+  display: flex;
+  justify-content: center;
+}
+#content-edit .tab .tab_menu .tab_btn {
+  margin: 0 1vw;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#content-edit .tab .tab_menu .tab_btn:hover {
+  transform: scale(1.2);
+}
+#content-edit .tab .tab_edit {
+  padding: 0.3vw;
+  width: 100%;
+}
+#content-edit .tab .tab_edit .column {
+  border: solid 1px;
+  position: relative;
+}
+#content-edit .tab .tab_edit .column .tabmenu {
+  position: absolute;
+  right: 0.3vw;
+  top: 0.3vw;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#content-edit .tab .tab_edit .column .tabmenu:hover {
+  transform: scale(1.2);
+}
+#content-edit .tab .tab_edit .mapResizable {
+  position: relative;
+  width: 30%;
+  height: 20vh;
+}
+#content-edit .tab .tab_edit .mapResizable iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#content-edit .tab .tab_edit .imgResizable {
+  position: relative;
+  width: 30%;
+  height: 20vh;
+}
+#content-edit .tab .tab_edit .imgResizable img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#content-edit .tab .tab_edit .imgResizable i, #content-edit .tab .tab_edit .mapResizable i, #content-edit .tab .tab_edit .diapoResizable i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #dce2ff;
+  cursor: pointer;
+  padding: 0.3vw;
+}
+#content-edit .tab .tab_edit .imgResizable i:nth-of-type(2), #content-edit .tab .tab_edit .mapResizable i:nth-of-type(2), #content-edit .tab .tab_edit .diapoResizable i:nth-of-type(2) {
+  top: 2rem;
+}
+#content-edit .tab .tab_edit .imgResizable i:nth-of-type(3), #content-edit .tab .tab_edit .mapResizable i:nth-of-type(3), #content-edit .tab .tab_edit .diapoResizable i:nth-of-type(3) {
+  top: 4rem;
+}
+#content-edit .tab .tab_edit .imgResizable i:nth-of-type(4), #content-edit .tab .tab_edit .mapResizable i:nth-of-type(4), #content-edit .tab .tab_edit .diapoResizable i:nth-of-type(4) {
+  top: 6rem;
+}
+#content-edit .tab .newColumn {
+  float: right;
+  cursor: pointer;
+}
+
+.pages .confirm {
+  display: none;
+  background: darkred;
+  color: white;
+  padding: 2%;
+}
+
+#formError {
+  display: none;
+}
+
+*[contenteditable=true]:focus {
+  border: none;
+  outline: none;
+}
+
+.m_invisible {
+  opacity: 0;
+  transform: translateY(2vh);
+  transition: all 2s, top 0.5s;
+}
+
+.m_visible {
+  transition: all 2s, top 0.5s;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/*********************************************************************************\
+$Grille
+\*********************************************************************************/
+/*********************************************************************************\
+$General
+\*********************************************************************************/
+/*********************************************************************************\
+$Boutons
+\*********************************************************************************/
+/*********************************************************************************\
+$Elements de layout
+\*********************************************************************************/
+/*********************************************************************************\
+$Hamburgers
+\*********************************************************************************/
+/*********************************************************************************\
+$Menus
+\*********************************************************************************/
+/*********************************************************************************\
+$Panneaux latéral
+\*********************************************************************************/
+/*********************************************************************************\
+$Sliders
+\*********************************************************************************/
+/*******************************************************************\
+  Style du Menus
+\*******************************************************************/
+ul.menu {
+  list-style: none;
+  padding: 0;
+  z-index: 200;
+  position: relative;
+}
+ul.menu li.non-mega {
+  position: relative !important;
+}
+ul.menu li {
+  width: auto;
+  position: relative;
+  z-index: 200;
+}
+ul.menu li:hover ul.sub-nav {
+  max-height: 25em;
+}
+ul.menu li ul.sub-nav {
+  position: absolute;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0;
+  z-index: 200;
+}
+ul.menu li a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+ul.menu li a:link, ul.menu li a:visited {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+ul.menu.mega li {
+  width: auto;
+  position: initial;
+  z-index: 200;
+}
+ul.menu.mega li:hover .sub-mega {
+  min-height: 20em;
+  max-height: 25em;
+}
+ul.menu.mega li .sub-mega {
+  position: absolute;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 10px 0 10px;
+  z-index: 400;
+  width: 100%;
+  left: 0;
+  text-align: left;
+  box-sizing: border-box;
+}
+ul.menu.mega li .sub-mega li {
+  margin-bottom: 0;
+}
+
+ul.menu.vertical {
+  float: left;
+  position: relative;
+}
+ul.menu.vertical li {
+  padding: 0px 15px;
+  position: relative;
+}
+ul.menu.vertical li i.expand {
+  border-radius: 50% 50%;
+  height: 20px;
+  width: 20px;
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: 15px;
+  vertical-align: middle;
+  color: white;
+  border: solid white 2px;
+  float: right;
+}
+ul.menu.vertical li ul.sub-nav {
+  z-index: 200;
+  top: 0;
+  width: auto;
+  height: 0;
+  left: 100%;
+  transition: 0.8s all 0.3s;
+  white-space: nowrap;
+  max-height: 0;
+}
+ul.menu.vertical li ul.sub-nav li {
+  display: block;
+  background: #16a085;
+}
+ul.menu.vertical li ul.sub-nav li:hover {
+  background: #1abc9c;
+}
+ul.menu.vertical li:hover ul.sub-nav {
+  height: auto;
+  max-height: none;
+}
+
+ul.menu.vertical.center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ul.menu.horizontal {
+  display: inline-block;
+}
+ul.menu.horizontal li {
+  display: inline-block;
+  padding: 0px 15px;
+}
+ul.menu.horizontal li ul.sub-nav {
+  width: auto;
+  left: 0;
+  white-space: nowrap;
+}
+ul.menu.horizontal li ul.sub-nav li {
+  display: block;
+}
+
+ul.menu.classic li {
+  transition: all 0.3s;
+  background: #3498db;
+  height: 50px;
+  line-height: 50px;
+}
+ul.menu.classic li:hover {
+  background: #2980b9;
+}
+ul.menu.classic li a {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+ul.menu.classic li ul.sub-nav {
+  transition: 0.2s height 0.2s, max-height 0.2s;
+}
+ul.menu.classic li ul.sub-nav li {
+  background: #16a085;
+  margin-bottom: 5px;
+}
+ul.menu.classic li ul.sub-nav li:hover {
+  background: #3498db;
+}
+ul.menu.classic li .sub-mega {
+  background: #16a085;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+ul.menu.classic li:hover .sub-mega {
+  opacity: 1;
+}
+ul.menu.classic li:hover .sub-nav {
+  transition: 0.5s height 0.1s, max-height 0.5s;
+}
+
+ul.menu.classic-no-space li {
+  transition: all 0.3s;
+  background: #3498db;
+  min-height: 50px;
+  line-height: 50px;
+  transition: height 0.3s;
+}
+ul.menu.classic-no-space li:hover {
+  background: #2980b9;
+}
+ul.menu.classic-no-space li a {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+ul.menu.classic-no-space li ul.sub-nav {
+  transition: 0.2s height 0.2s, max-height 0.2s;
+}
+ul.menu.classic-no-space li ul.sub-nav li {
+  background: #16a085;
+}
+ul.menu.classic-no-space li ul.sub-nav li:hover {
+  background: #3498db;
+}
+ul.menu.classic-no-space li .sub-mega {
+  background: #16a085;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+ul.menu.classic-no-space li:hover .sub-mega {
+  opacity: 1;
+}
+ul.menu.classic-no-space li:hover .sub-nav {
+  transition: 0.5s height 0.1s, max-height 0.5s;
+}
+
+ul.menu.classic-no-space.visible-mobile li {
+  transition: all 0.3s;
+  background: #3498db;
+  min-height: 50px;
+  line-height: 50px;
+  border-bottom: solid white 1px;
+}
+ul.menu.classic-no-space.visible-mobile li:hover {
+  background: #2980b9;
+}
+ul.menu.classic-no-space.visible-mobile li i.expand {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 10px;
+  vertical-align: middle;
+  color: #ecf0f1;
+  border: solid white 2px;
+  float: right;
+}
+ul.menu.classic-no-space.visible-mobile li a {
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+ul.menu.classic-no-space.visible-mobile li ul.sub-nav {
+  left: 0;
+  transition: 0.2s height 0.2s, max-height 0.2s;
+  font-size: 0.8em;
+}
+ul.menu.classic-no-space.visible-mobile li ul.sub-nav li {
+  background: #16a085;
+  white-space: normal;
+  border-bottom: solid white 1px;
+}
+ul.menu.classic-no-space.visible-mobile li ul.sub-nav li:hover {
+  background: #3498db;
+}
+ul.menu.classic-no-space.visible-mobile li.expanded .sub-nav {
+  position: relative;
+  max-height: none;
+  left: 0;
+  padding: 0;
+}
+
+/*********************************************************************************\
+$Grille
+\*********************************************************************************/
+/*********************************************************************************\
+$General
+\*********************************************************************************/
+/*********************************************************************************\
+$Boutons
+\*********************************************************************************/
+/*********************************************************************************\
+$Elements de layout
+\*********************************************************************************/
+/*********************************************************************************\
+$Hamburgers
+\*********************************************************************************/
+/*********************************************************************************\
+$Menus
+\*********************************************************************************/
+/*********************************************************************************\
+$Panneaux latéral
+\*********************************************************************************/
+/*********************************************************************************\
+$Sliders
+\*********************************************************************************/
+.slide_panel {
+  position: fixed;
+  background: #ecf0f1;
+  top: 0;
+  bottom: 0;
+  min-height: 100%;
+  z-index: 99999;
+  transition: width 0.5s, transform 0.5s, 0.5s, position 0s;
+  width: 0;
+  white-space: nowrap;
+}
+.slide_panel .panel_content {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.slide_panel.closed {
+  width: 0;
+}
+.slide_panel.closed .panel_button {
+  position: absolute;
+  right: 0;
+}
+.slide_panel .panel_button {
+  position: absolute;
+  right: 0;
+  transition: left 0.5s 0.2s, transform 0.5s;
+  vertical-align: middle;
+  cursor: pointer;
+  width: fit-content;
+}
+.slide_panel.left {
+  left: 0;
+}
+.slide_panel.right {
+  right: 0;
+}
+.slide_panel.quarter {
+  width: 25%;
+}
+.slide_panel.half {
+  width: 50%;
+}
+.slide_panel.third {
+  width: 33.33%;
+}
+.slide_panel.double-third {
+  width: 66.66%;
+}
+.slide_panel.full {
+  width: 100%;
+}
+.slide_panel.closed {
+  width: 0%;
+}
+.slide_panel .header {
+  background: #95a5a6;
+  height: 100px;
+}
+.slide_panel .panel_content {
+  padding-left: 15px;
+}
+
+.progress_bar {
+  background-color: #e1e8e8;
+  width: 40%;
+  height: 20px;
+  margin: 0 auto;
+}
+.progress_bar .progression {
+  background-color: #3498db;
+  color: white;
+  box-sizing: border-box;
+  width: 0;
+}
+.progress_bar .progression span {
+  vertical-align: middle;
+}
+.progress_bar.animated .progression {
+  transition: width 0.5s ease;
+}
+.progress_bar.value_center .progression {
+  text-align: center;
+}
+.progress_bar.value_end .progression {
+  text-align: right;
+  padding-right: 0.5vw;
+}
+.progress_bar.value_start .progression {
+  text-align: left;
+  padding-left: 0.5vw;
+}
+.progress_bar.rounded {
+  border-radius: 10px;
+}
+.progress_bar.rounded .progression {
+  border-radius: 10px;
+}
+.progress_bar.stripped .progression {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  animation: stripped-progress 1s infinite linear;
+  background-size: 40px 40px;
+}
+.progress_bar.cursor .progression {
+  position: relative;
+}
+.progress_bar.cursor .progression .cursor_bar {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 0;
+  top: -2.5px;
+  transform: translateX(50%);
+  border-radius: 12.5px;
+  background-color: #ded7d7;
+  border: solid 5px #b6afaf;
+  box-sizing: border-box;
+}
+
+@keyframes stripped-progress {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -40px;
+  }
+}
+/*******************************************************************\
+  Style des sliders
+\*******************************************************************/
+/*******************************************************************\
+  Style
+\*******************************************************************/
+/*General*/
+/*******************************************************************\
+  $General
+\*******************************************************************/
+.slider {
+  display: inline-block;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: content-box;
+  width: 310px;
+  border-radius: 10px;
+  background: #95a5a6;
+  /*Membre de la légende avec curseur*/
+}
+.slider .slider-container {
+  left: 0;
+  width: 8%;
+  display: inline-block;
+  margin-top: 25px;
+  vertical-align: middle;
+  /*Corps du slider*/
+  /*Haut de la barre de slide*/
+  /*Bas de la barre de slide*/
+  /*Barre colorée témoin de la barre de slide*/
+}
+.slider .slider-container .ui-slider {
+  width: 100%;
+  height: 200px;
+  border-radius: 0;
+  border-bottom: none;
+  border-top: none;
+  /*Poignée du slider*/
+}
+.slider .slider-container .ui-slider .ui-slider-handle {
+  height: 25%;
+  width: 150%;
+  margin-bottom: -110%;
+  left: -24%;
+  background-image: url("/ressources/images/modules/sliders/handle.png");
+  background-size: 100% 100%;
+  transition: all 0.5s ease;
+}
+.slider .slider-container .ui-slider-top {
+  width: 100%;
+  height: 25px;
+  display: block;
+  margin-top: -26px;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #eeeeee 50% top repeat-x;
+  content: "";
+}
+.slider .slider-container .ui-slider-bottom {
+  width: 100%;
+  height: 25px;
+  display: block;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #f6a828 50% top repeat-x;
+  content: "";
+}
+.slider .slider-container .ui-slider-range {
+  border-radius: 0;
+  transition: all 0.5s ease;
+}
+.slider ul {
+  display: inline-block;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  width: 85%;
+  vertical-align: middle;
+  text-align: left;
+  list-style: none;
+}
+.slider ul li {
+  display: flex;
+  width: auto;
+  line-height: 26px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  /*Légende active*/
+}
+.slider ul li.active {
+  background: #ffffff;
+  color: #f6a828;
+}
+
+/*******************************************************************\
+  $Slider Flèche
+\*******************************************************************/
+.slider.arrow {
+  /*Légende Barre de Slide*/
+}
+.slider.arrow .slider-container {
+  width: 35%;
+  /*Barre de slide*/
+}
+.slider.arrow .slider-container .ui-slider {
+  /*Poignée du slider*/
+}
+.slider.arrow .slider-container .ui-slider .ui-slider-handle {
+  height: 25%;
+  width: 140%;
+  margin-bottom: -25%;
+  left: -10%;
+  border: none;
+  background: transparent url("/ressources/images/modules/sliders/handle-arrow.png");
+  background-size: 100% 100%;
+  transition: all 0.5s ease;
+}
+.slider.arrow ul {
+  width: 60%;
+}
+.slider.arrow ul li {
+  padding-left: 20% !important;
+}
+
+/*******************************************************************\
+  $Slider Range
+\*******************************************************************/
+.slider.slider_range {
+  /*Légende Barre de Slide*/
+}
+.slider.slider_range .slider-container {
+  width: 8%;
+  /*Barre de slide*/
+}
+.slider.slider_range .slider-container .ui-slider {
+  /*Poignée du slider*/
+}
+.slider.slider_range .slider-container .ui-slider .ui-slider-handle {
+  height: 15%;
+  width: 125%;
+  margin-bottom: -15%;
+  left: -14%;
+  border: none;
+  background: transparent url("/ressources/images/modules/sliders/handle-square.png");
+  background-size: 100% 100%;
+  transition: all 0.5s ease;
+}
+.slider.slider_range ul {
+  width: 60%;
+}
+.slider.slider_range ul li {
+  padding-left: 20% !important;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/*******************************************************************\
+  $General Slider à quatre choix
+\*******************************************************************/
+.slider.vertical.slider4 {
+  /*Légende de la barre de slide*/
+}
+.slider.vertical.slider4 ul {
+  /*Titre de légende*/
+}
+.slider.vertical.slider4 ul li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*******************************************************************\
+  $General Slider a 3 choix
+\*******************************************************************/
+.slider.vertical.slider3 {
+  /*Légende de la barre de slide*/
+}
+.slider.vertical.slider3 ul {
+  /*Titre de légende*/
+}
+.slider.vertical.slider3 ul li {
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+
+/*******************************************************************\
+  $General Slider à 5 choix gamme
+\*******************************************************************/
+.slider.slider_range.range5 .ui-slider {
+  width: 100%;
+  height: 200px;
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.slideshow {
+  width: 30vw;
+  height: 16.875vw;
+  position: relative;
+}
+.slideshow.tooltip .right-tip, .slideshow.tooltip .left-tip {
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  font-size: 2vw;
+  font-weight: bolder;
+  top: 50%;
+  transform: translateY(-50%) scale(1, 1.5);
+  text-align: center;
+  cursor: pointer;
+}
+.slideshow.tooltip .right-tip {
+  right: 0;
+}
+.slideshow.tooltip .left-tip {
+  left: 0;
+}
+.slideshow .slide {
+  width: 100%;
+  height: 100%;
+}
+.slideshow .slide img {
+  width: 100%;
+  height: 100%;
+}
+.slideshow.fade .slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.slideshow.fade .slide.active {
+  opacity: 1;
+}
+.slideshow.sliding-left {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.slideshow.sliding-left .slide {
+  position: relative;
+  flex-shrink: 0;
+  transition: margin-left 1s;
+}
+.slideshow.sliding-top {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.slideshow.sliding-top .slide {
+  position: relative;
+  flex-shrink: 0;
+  transition: height 1s;
+  height: 0;
+}
+.slideshow.sliding-top .slide.active {
+  height: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bold.bold1 {
+  font-weight: bold;
+}
+
+.bold.bold2 {
+  font-weight: bolder;
+}
+
+.no-bold {
+  font-weight: normal;
+}
+
+.v-align {
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+a, a:link, a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+html, body {
+  background: #1abc9c;
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,35 @@
+$gridSize : 20;
+
+.flex-column
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row
+{
+  display: flex;
+  flex-direction: row;
+}
+
+@for $i from 1 through $gridSize {
+  .col-#{$i} {width: (100%/$gridSize)*$i;}
+}
+
+@for $i from 1 through 20 {
+  .p-col-#{$i} {margin-left: (100%/$gridSize)*$i;}
+}
+
+.col-05 {width: (100%/$gridSize)/2;}
+
+.p-col-05 {margin-left: (100%/$gridSize)/2;}
+
+.alert
+{
+  padding: 2%;
+  color: white;
+  
+  &.alert-success {background: darkgreen;}
+
+  &.alert-error {background: darkred;}
+}

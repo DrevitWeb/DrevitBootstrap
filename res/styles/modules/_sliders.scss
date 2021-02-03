@@ -1,0 +1,290 @@
+
+/*******************************************************************\
+  Style des sliders
+\*******************************************************************/
+
+
+/*******************************************************************\
+  Style
+\*******************************************************************/
+/*General*/
+$general-color-1 : #ffffff;
+$general-color-2 : #f6a828;
+$general-color-body : #dddddd;
+$general-color-bg : #eeeeee;
+
+/*******************************************************************\
+  $General
+\*******************************************************************/
+
+.slider
+{
+  display: inline-block;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: content-box;
+  width: 310px;
+
+  border-radius: 10px;
+
+  background: #95a5a6;
+
+
+  .slider-container
+  {
+    left: 0;
+    width: 8%;
+    display: inline-block;
+    margin-top: 25px;
+
+    vertical-align: middle;
+
+    /*Corps du slider*/
+    .ui-slider
+    {
+      width: 100%;
+      height: 200px;
+
+      border-radius: 0;
+      border-bottom: none;
+      border-top: none;
+
+      /*Poignée du slider*/
+      .ui-slider-handle
+      {
+        height: 25%;
+        width: 150%;
+        margin-bottom: -110%;
+        left: -24%;
+
+        background-image: url("/ressources/images/modules/sliders/handle.png");
+        background-size: 100% 100%;
+
+        transition: all 0.5s ease;
+      }
+    }
+
+    /*Haut de la barre de slide*/
+    .ui-slider-top
+    {
+      width: 100%;
+      height: 25px;
+      display: block;
+      margin-top: -26px;
+
+      border-top: 1px solid $general-color-body;
+      border-left: 1px solid $general-color-body;
+      border-right: 1px solid $general-color-body;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      background: $general-color-bg 50% top repeat-x;
+
+      content: "";
+    }
+
+    /*Bas de la barre de slide*/
+    .ui-slider-bottom
+    {
+      width: 100%;
+      height: 25px;
+      display: block;
+
+      border-bottom: 1px solid $general-color-body;
+      border-left: 1px solid $general-color-body;
+      border-right: 1px solid $general-color-body;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+
+      background: $general-color-2 50% top repeat-x;
+
+      content: "";
+    }
+
+    /*Barre colorée témoin de la barre de slide*/
+    .ui-slider-range
+    {
+      border-radius: 0;
+
+      transition: all 0.5s ease;
+    }
+  }
+
+  /*Membre de la légende avec curseur*/
+  ul
+  {
+    display: inline-block;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    width: 85%;
+
+    vertical-align: middle;
+    text-align: left;
+
+    list-style: none;
+
+    li
+    {
+      display: flex;
+      width: auto;
+      line-height: 26px;
+      padding-left: 15px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+
+      text-transform: uppercase;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      /*Légende active*/
+      &.active
+      {
+        background: $general-color-1;
+
+        color: $general-color-2;
+      }
+    }
+  }
+}
+
+/*******************************************************************\
+  $Slider Flèche
+\*******************************************************************/
+
+.slider.arrow
+{
+  .slider-container
+  {
+    width: 35%;
+
+    /*Barre de slide*/
+    .ui-slider
+    {
+      /*Poignée du slider*/
+      .ui-slider-handle
+      {
+        height: 25%;
+        width: 140%;
+        margin-bottom: -25%;
+        left: -10%;
+
+        border: none;
+
+        background: transparent url("/ressources/images/modules/sliders/handle-arrow.png");
+        background-size: 100% 100%;
+
+        transition: all 0.5s ease;
+      }
+    }
+  }
+
+  /*Légende Barre de Slide*/
+  ul
+  {
+    width: 60%;
+
+    li
+    {
+      padding-left: 20% !important;
+    }
+  }
+}
+
+/*******************************************************************\
+  $Slider Range
+\*******************************************************************/
+
+.slider.slider_range
+{
+  .slider-container
+  {
+    width: 8%;
+
+    /*Barre de slide*/
+    .ui-slider
+    {
+      /*Poignée du slider*/
+      .ui-slider-handle
+      {
+        height: 15%;
+        width: 125%;
+        margin-bottom: -15%;
+        left: -14%;
+
+        border: none;
+
+        background: transparent url("/ressources/images/modules/sliders/handle-square.png");
+        background-size: 100% 100%;
+
+        transition: all 0.5s ease;
+      }
+    }
+  }
+
+  /*Légende Barre de Slide*/
+  ul
+  {
+    width: 60%;
+
+    li
+    {
+      padding-left: 20% !important;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+  }
+}
+
+/*******************************************************************\
+  $General Slider à quatre choix
+\*******************************************************************/
+
+.slider.vertical.slider4
+{
+  /*Légende de la barre de slide*/
+  ul
+  {
+    /*Titre de légende*/
+    li
+    {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/*******************************************************************\
+  $General Slider a 3 choix
+\*******************************************************************/
+
+.slider.vertical.slider3
+{
+  /*Légende de la barre de slide*/
+  ul
+  {
+    /*Titre de légende*/
+    li
+    {
+      margin-top: 55px;
+      margin-bottom: 55px;
+    }
+  }
+}
+
+/*******************************************************************\
+  $General Slider à 5 choix gamme
+\*******************************************************************/
+
+.slider.slider_range.range5
+{
+  .ui-slider
+  {
+    width: 100%;
+    height: 200px;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}

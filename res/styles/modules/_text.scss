@@ -1,0 +1,17 @@
+.bold {font-weight: bold;}
+
+.bold.bold1 {font-weight: bold;}
+
+.bold.bold2 {font-weight: bolder;}
+
+.no-bold {font-weight: normal;}
+
+.v-align {vertical-align: middle;}
+
+.center {text-align: center;}
+
+a, a:link, a:visited
+{
+  color: #000000;
+  text-decoration: none;
+}

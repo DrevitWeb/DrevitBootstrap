@@ -1,0 +1,679 @@
+@import "../variables";
+
+/*******************************************************************\
+  Style du menu Hamburger
+\*******************************************************************/
+
+/*******************************************************************\
+  $General
+\*******************************************************************/
+.hamburger {
+  height: 54px;
+  width: 54px;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 50% 50%;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    width: 22px;
+    display: block;
+    background: #FFF;
+    transform: translateX(-50%) translateY(-50%);
+
+    &::after, &::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #FFF;
+      transform: translateY(-6px);
+      transition: transform 0.6s;
+    }
+
+    &::after {
+      transform: translateY(6px);
+    }
+  }
+  &:hover {
+    span::before {
+      transform: translateY(-8px);
+    }
+    span::after {
+      transform: translateY(8px);
+    }
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Rotate
+\*******************************************************************/
+.hamburger-rotate {
+  transition: transform 0.6s;
+
+  span::before, span::after {
+    transform-origin: 50% 50%;
+  }
+
+  span {
+    transition: background 0.6s;
+  }
+
+  svg {
+    fill: #000;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 165;
+    stroke-dashoffset: 165;
+    transition: stroke-dashoffset 0.6s, transform 0.6s;
+  }
+
+  &.is-opened {
+    transform: rotate(90deg);
+    svg {
+      transform: rotate(-90deg);
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Cross Rotate
+\*******************************************************************/
+.hamburger-cross-rotate {
+  transition: transform 0.6s;
+
+  span::before, span::after {
+    transform-origin: 50% 50%;
+  }
+
+  span {
+    transition: background 0.6s;
+  }
+
+  svg {
+    fill: #000;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 165;
+    stroke-dashoffset: 165;
+    transition: stroke-dashoffset 0.6s, transform 0.6s;
+  }
+
+  &.is-opened {
+    transform: rotate(180deg);
+    span {
+      background: transparent;
+      &::before {
+        transform: translateY(0) rotate(45deg) !important;
+      }
+      &::after {
+        transform: translateY(0) rotate(-45deg) !important;
+      }
+    }
+    svg {
+      transform: rotate(-180deg);
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Cross Retract
+\*******************************************************************/
+.hamburger-cross-retract {
+  transition: transform 0.6s;
+
+  span::before, span::after {
+    transform-origin: 50% 50%;
+    transition: transform 0.6s, animation 0.6s;
+  }
+
+  span {
+    transition: background 0.6s, transform 0.6s;
+  }
+
+  svg {
+    fill: #000;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 165;
+    stroke-dashoffset: 165;
+    transition: stroke-dashoffset 0.6s, transform 0.6s;
+  }
+
+  &.is-opened {
+    span {
+      background: transparent;
+      &::before, &::after {
+        transition: transform 0.6s;
+      }
+      &::before {
+        animation: cross-retract-right 0.6s;
+        animation-fill-mode: forwards;
+      }
+      &::after {
+        animation: cross-retract-left 0.6s;
+        animation-fill-mode: forwards;
+      }
+    }
+    svg {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &.is-closed {
+    span {
+      &::before, &::after {
+        transition: transform 0.6s;
+      }
+      &::before {
+        animation: cross-retract-right-out 0.6s;
+      }
+      &::after {
+        animation: cross-retract-left-out 0.6s;
+      }
+    }
+  }
+}
+
+@keyframes cross-retract-left {
+  40% {
+    transform: translateY(0px);
+  }
+
+  80% {
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes cross-retract-right {
+  40% {
+    transform: translateY(0px);
+  }
+
+  80% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes cross-retract-left-out {
+  100% {
+    transform: translateY(6px);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes cross-retract-right-out {
+  100% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(-45deg);
+  }
+}
+
+/*******************************************************************\
+  $Hamburger SVG
+\*******************************************************************/
+.hamburger-svg {
+  transition: transform 0.6s;
+
+  span::before, span::after {
+    transform-origin: 100% 50%;
+  }
+
+  span {
+    background: #FFFFFF;
+    transition: background 0.6s steps(1, end);
+  }
+
+  svg {
+    opacity: 0;
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 22 230;
+    transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s, opacity 0.6s steps(1, end);
+  }
+
+  &.is-opened {
+    span {
+      background: transparent;
+      transition: background 0.6s steps(1, start);
+      &::before {
+        transform: translateX(-3px) translateY(-8px) rotate(-45deg) !important;
+      }
+      &::after {
+        transform: translateX(-3px) translateY(8px) rotate(45deg) !important;
+      }
+    }
+    svg {
+      opacity: 1;
+      transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s, opacity 0.6s steps(1, start);
+      animation: svg-animation 0.6s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.is-closed {
+    svg {
+      animation: svg-animation-out 0.6s;
+    }
+  }
+}
+@keyframes svg-animation {
+  40% {
+    stroke-dasharray: 22 230;
+  }
+
+  60% {
+    stroke-dashoffset: -65;
+  }
+
+  100% {
+    stroke-dashoffset: -65;
+    stroke-dasharray: 160;
+  }
+}
+@keyframes svg-animation-out {
+  0% {
+    stroke-dashoffset: -65;
+    stroke-dasharray: 160;
+  }
+
+  40% {
+    stroke-dashoffset: -65;
+  }
+
+  60% {
+    stroke-dasharray: 22 230;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Arrow Right
+\*******************************************************************/
+.hamburger-arrow-right {
+  transition: transform 0.6s;
+
+  span::before, span::after {
+    transform-origin: 0% 50%;
+  }
+
+  span, span::after, span::before {
+    transition: width 0.6s, transform 0.6s;
+  }
+
+  svg {
+    fill: #000;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 165;
+    stroke-dashoffset: 165;
+    transition: stroke-dashoffset 0.8s, transform 0.6s;
+  }
+
+  &.is-opened {
+    transform: rotate(180deg);
+    span {
+      &::before {
+        transform: translateY(0) rotate(-45deg) !important;
+        width: 50%;
+      }
+      &::after {
+        transform: translateY(0) rotate(45deg) !important;
+        width: 50%;
+      }
+    }
+    svg {
+      transform: rotate(-180deg);
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Arrow Left
+\*******************************************************************/
+.hamburger-arrow-left {
+  transition: transform 0.6s;
+
+  span::before, span::after {
+    transform-origin: 100% 50%;
+  }
+
+  span, span::after, span::before {
+    transition: width 0.6s, transform 0.6s;
+  }
+
+  svg {
+    fill: #000;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 165;
+    stroke-dashoffset: -165;
+    transition: stroke-dashoffset 0.8s, transform 0.6s;
+  }
+
+  &.is-opened {
+    transform: rotate(-180deg);
+    span {
+      &::before {
+        transform: translateX(10px) translateY(0) rotate(45deg) !important;
+        width: 50%;
+      }
+      &::after {
+        transform: translateX(10px) translateY(0) rotate(-45deg) !important;
+        width: 50%;
+      }
+    }
+    svg {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Draw
+\*******************************************************************/
+.hamburger-draw {
+  transition: width 0.6s;
+  span, span::after, span::before {
+    transition: width 0.6s, transform 0.6s;
+  }
+  span::before {
+    transform-origin: 0% 50%;
+    transform: translateY(-12px);
+  }
+  span {
+    transform: translateY(6px) translateX(-11px);
+  }
+  span::after {
+    transform-origin: 0% 50%;
+    transform: translateY(-6px);
+  }
+
+  svg {
+    fill: #000;
+    stroke-width: 2px;
+    stroke: #FFF;
+    stroke-dasharray: 165;
+    stroke-dashoffset: -165;
+    transition: stroke-dashoffset 0.8s, transform 0.6s;
+  }
+
+  &.is-opened {
+    span {
+      animation: cross-drawn-mid $draw-time;
+      animation-fill-mode: forwards;
+      &::before {
+        transition-delay: 0s !important;
+        animation: cross-drawn-left $draw-time;
+        animation-fill-mode: forwards;
+      }
+      &::after {
+        transition-delay: 0s !important;
+        animation: cross-drawn-right $draw-time;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  &.is-closed {
+    span {
+      animation: cross-drawn-mid-out $draw-time;
+      animation-fill-mode: forwards;
+      &::before {
+        transition-delay: 0s !important;
+        animation: cross-drawn-left-out $draw-time;
+        animation-fill-mode: forwards;
+      }
+      &::after {
+        transition-delay: 0s !important;
+        animation: cross-drawn-right-out $draw-time;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  &:hover {
+    span {
+      &::after {
+        transform: translateY(-6px);
+      }
+      &::before {
+        transform: translateY(-12px);
+      }
+    }
+  }
+
+}
+@keyframes cross-drawn-mid {
+  0% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  20% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  40% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 0;
+  }
+  41% {
+    transform: translateY(6px) translateX(-11px) rotate(90deg);
+    width: 0;
+  }
+  57% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  60% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  100% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+}
+@keyframes cross-drawn-left {
+  0% {
+    transform: translateY(-12px);
+    width: 22px;
+  }
+  35% {
+    transform: translateY(-12px) rotate(0deg);
+    width: 0;
+  }
+  45% {
+    transform: translateY(8px) translateX(3px) rotate(0deg);
+    width: 0;
+  }
+  46% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  50% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  80% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+  100% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+}
+@keyframes cross-drawn-right {
+  0% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  10% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  45% {
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+  }
+  45% {
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+  }
+  46% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  60% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  90% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+  100% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+}
+@keyframes cross-drawn-mid-out {
+  100% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  80% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 22px;
+  }
+  46% {
+    transform: translateY(6px) translateX(-11px) rotate(0deg);
+    width: 0;
+  }
+  45% {
+    transform: translateY(6px) translateX(-11px) rotate(90deg);
+    width: 0;
+  }
+  43% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  40% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+  0% {
+    transform: translateY(-11px) translateX(0px) rotate(90deg);
+    width: 0;
+  }
+}
+@keyframes cross-drawn-left-out {
+  100% {
+    transform: translateY(-12px);
+    width: 22px;
+  }
+  65% {
+    transform: translateY(-12px) rotate(0deg);
+    width: 0;
+  }
+  55% {
+    transform: translateY(8px) translateX(3px) rotate(0deg);
+    width: 0;
+  }
+  54% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  50% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 0;
+  }
+  20% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+  0% {
+    transform: translateY(8px) translateX(3px) rotate(-45deg);
+    width: 22px;
+  }
+}
+@keyframes cross-drawn-right-out {
+  100% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  90% {
+    transform: translateY(-6px);
+    width: 22px;
+  }
+  55% {
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+    transform: translateY(-6px) rotate(0deg);
+    width: 0;
+  }
+  54% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  40% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 0;
+  }
+  10% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+  0% {
+    transform: translateY(-8px) translateX(3px) rotate(45deg);
+    width: 22px;
+  }
+}
+
+/*******************************************************************\
+  $Hamburger Content
+\*******************************************************************/
+.hamburger_content {
+  transition: opacity 0.6s ease-in-out !important;
+  opacity: 0;
+  height: 0;
+}
+.is-opened + .hamburger_content {
+  transition: opacity 0.6s ease-in-out !important;
+  opacity: 1;
+  height: auto;
+}
+.is-closed + .hamburger_content {
+  transition: opacity 0.6s ease-in-out !important;
+  opacity: 0;
+  display: none;
+  height: 0;
+}
+

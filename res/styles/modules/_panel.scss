@@ -1,0 +1,89 @@
+@import "../variables";
+
+.slide_panel{
+  position: fixed;
+  background: $panel-bg-color;
+  top: 0;
+  bottom: 0;
+  min-height: 100%;
+  z-index: 99999;
+  transition: width .5s, transform .5s, .5s, position 0s;
+  width: 0;
+  white-space: nowrap;
+
+  .panel_content
+  {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &.closed
+  {
+    width: 0;
+    .panel_button
+    {
+      position: absolute; //for handle fixed
+      right: 0; //for handle fixed
+
+      //transform: translateX(-100%); //for handle move
+     }
+  }
+
+  .panel_button
+  {
+    //transform: scale(1, 1) translateX(-100%); //for handle move
+    position: absolute; //for handle fixed
+    right: 0; //for handle fixed
+    transition: left .5s 0.2s, transform .5s;
+    vertical-align: middle;
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+  &.left
+  {
+    left: 0;
+  }
+
+  &.right
+  {
+    right: 0;
+  }
+
+
+  &.quarter
+  {
+    width: 25%;
+  }
+  &.half
+  {
+    width: 50%;
+  }
+  &.third
+  {
+    width: 33.33%;
+  }
+  &.double-third
+  {
+    width: 66.66%;
+  }
+  &.full
+  {
+    width: 100%;
+  }
+  &.closed
+  {
+    width: 0%;
+  }
+
+  .header
+  {
+    background: $panel-header-bg-color;
+    height: $panel-header-height;
+  }
+
+  .panel_content
+  {
+    padding-left: 15px;
+  }
+}
