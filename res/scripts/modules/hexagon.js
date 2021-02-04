@@ -72,7 +72,6 @@ $(document).ready(function () {
     $("*").click(function (e) {
         if(!$(e.target).hasClass("hexagon") && !$(e.target).hasClass("border") && !$(e.target).parents('.hexagon').length)
         {
-            console.log("aaa")
             let opened = $(".hexagon.opened");
             opened.css("z-index", 10000);
             setTimeout(function () {
@@ -83,4 +82,78 @@ $(document).ready(function () {
             $(".hexagon.move").css("transform", "");
         }
     })
+
+    let hexas = [];
+
+    $(".hexa_free").find(".hexagon").each(function () {
+        let left = randomIntFromInterval(0, 16);
+        let size = randomIntFromInterval(5,12);
+        $(this).css("left", left*2.5+"%");
+        $(this).css("height", size+'vw');
+        $(this).css("width", size+'vw');
+
+        let hexa = {
+            hexa: $(this),
+            left: $(this).position().left,
+            top: $(this).position().top,
+            radius : $(this).width()/2*1.01
+        }
+        hexas.push(hexa);
+    });
+
+    let i = 0;
+
+    while(isCollision(hexas))
+    {
+        i++;
+        hexas.forEach(function (hexa1, i1) {
+            hexas.forEach(function(hex, i2){
+                if(circle_collision(hexa1, hex))
+                {
+                    let dx = Math.abs(hexa1.left - hex.left);
+                    let dr = hexa1.radius + hex.radius;
+
+                    if(hexa1.top >= hex.top)
+                    {
+                        let dy = hexa1.top - hex.top;
+
+                        let ny = Math.sqrt(Math.abs(dr^2 - dx^2 - dy));
+                        hexas[i1].top = hexa1.top + ny + 10;
+                    }
+                    else
+                    {
+                        let dy = hex.top - hexa1.top;
+
+                        let ny = Math.sqrt(Math.abs(dr^2 - dx^2 - dy));
+                        hexas[i2].top = hex.top + ny + 10;
+                    }
+                }
+            })
+        })
+    }
+
+    console.log(isCollision(hexas))
+
+    let j = 0;
+    hexas.forEach(function (hexa1) {
+            hexa1.hexa.css({
+                left: hexa1.left+"px",
+                top: hexa1.top+"px"
+            });
+        j++;
+    })
 });
+
+function isCollision(hexas) {
+    let collision = false;
+    hexas.forEach(function (h1) {
+        hexas.forEach(function (h2) {
+            if(circle_collision(h1, h2))
+            {
+                collision = true;
+            }
+        })
+    })
+
+    return collision;
+}

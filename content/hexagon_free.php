@@ -1,0 +1,35 @@
+<h1 class="center">Hexagon free</h1>
+<div class="hexa_free">
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+    <div class="hexagon"></div>
+</div>
+
+<script src="res/scripts/modules/hexagon.js"></script>

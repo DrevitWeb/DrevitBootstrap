@@ -1199,6 +1199,14 @@ $Sliders
   width: fit-content;
 }
 
+.hexa_free {
+  position: relative;
+}
+.hexa_free .hexagon {
+  position: absolute;
+  transition: none;
+}
+
 #editor-actions {
   display: flex;
   justify-content: space-around;
