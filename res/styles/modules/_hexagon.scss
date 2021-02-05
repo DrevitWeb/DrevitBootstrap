@@ -7,10 +7,14 @@
   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   box-sizing: border-box;
   position: relative;
-  transition: all 0.5s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.end
+  {
+    transition: all 0.5s ease-out;
+  }
 }
 
 .hexagon .iconContent
@@ -132,8 +136,9 @@
     position: absolute;
   }
 
-  width: 100%;
+  width: 106%;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: visible;
+  margin-left: -6vw;
 }

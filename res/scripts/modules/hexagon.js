@@ -65,7 +65,7 @@ $(document).ready(function () {
                 let matrix = new WebKitCSSMatrix(content.css("transform"));
                 content.css("transform", matrix.rotate(0,0,-28.5));
             }*/
-            $(this).css("z-index", 10000);
+            $(this).css("z-index", 1000000);
         }
     });
 
@@ -85,13 +85,14 @@ $(document).ready(function () {
 
 
     $(".hexa_free").find(".hexagon").each(function () {
-        let size = randomIntFromInterval(5, 12);
+        let size = randomIntFromInterval(5, 10);
+        if($(this).hasClass("move")) size = 10;
         $(this).css("height", size + 'vw');
         $(this).css("width", size + 'vw');
     });
 
     let placed = false;
-    $(".hexagon").eq(0).one("transitionend webkitTransitionEnd", function(e){
+    setTimeout(function(e){
         if(!placed) {
             placed = true;
             let hexas = [];
@@ -99,15 +100,21 @@ $(document).ready(function () {
             $(".hexa_free").find(".hexagon").each(function () {
 
                 let left = geoDist(1, 100, 0.8);
-
-                //$(this).css("left", left+"%");
+                console.log("Initial"+(this.offsetLeft + $(this).width()/2)+" "+$(window).width())
+                while((left / 100 * $($(this).parent()).width()) >= $(window).width())
+                {
+                    left = geoDist(1, 100, 0.8);
+                    console.log((this.offsetLeft + $(this).width()/2) + " " + (left / 100 * $($(this).parent()).width()))
+                }
+                if($(this).hasClass("move")) left = randomIntFromInterval(10,90)
 
                 let hexa = {
                     hexa: $(this),
                     k: k,
                     left: left / 100 * $($(this).parent()).width(),
                     top: $(this).position().top,
-                    radius: $(this).width() / 2 * 1.01
+                    radius: $(this).width() / 2 * 1.01,
+                    content: $(this).hasClass("move")
                 }
                 hexas.push(hexa);
                 k++;
@@ -116,13 +123,14 @@ $(document).ready(function () {
             //Ajax collision calc
             calcPosition(hexas);
         }
-    })
+    }, 500)
 });
 
 let calc = 0;
 
 function calcPosition(hexas)
 {
+    console.log("a")
     calc++;
     ajaxRequest("POST", "class/controllers/modulesController.php?func=calcHexasPosition", function (data) {
         let hexasParsed = JSON.parse(data);
@@ -139,85 +147,33 @@ function calcPosition(hexas)
         if(calc >= 10){placeHexas(hexasParsed);return;}
         hexas.forEach(function (hexa, i) {
             let left = geoDist(1, $(window).width(), 0.8);
+            if(hexa.hexa.hasClass("move")) left = randomIntFromInterval(0.1*$(window).width(),0.9*$(window).width())
+            console.log(left)
             hexas[i].left = left;
         })
         calcPosition(hexas);
     })
 }
 
-/*function resolveCollisions(hexas, repeat) {
-    while(isCollision(hexas))
-    {
-        hexas.forEach(function (hexa1, i1) {
-            hexas.forEach(function(hex, i2){
-                if(circle_collision(hexa1, hex))
-                {
-                    let dx = Math.abs(hexa1.left - hex.left);
-                    let dr = hexa1.radius + hex.radius;
-
-                    if(hexa1.top >= hex.top)
-                    {
-                        let dy = hexa1.top - hex.top;
-
-                        let ny = Math.sqrt(Math.abs(dr^2 - dx^2 - dy));
-                        hexas[i1].top = hexa1.top + ny + 10;
-                    }
-                    else
-                    {
-                        let dy = hex.top - hexa1.top;
-
-                        let ny = Math.sqrt(Math.abs(dr^2 - dx^2 - dy));
-                        hexas[i2].top = hex.top + ny + 10;
-                    }
-                }
-            })
-        })
-    }
-
-
-    let found = false;
-
-    hexas.forEach(function (hexa, i) {
-        if(hexa.top + hexa.radius*2 >= $(window).height() && !found)
-        {
-            let left = geoDist(0,100, 0.8);
-            hexas[i].top = 0;
-            hexas[i].left = left;
-            try {
-                resolveCollisions(hexas);
-            }
-            catch (ex) {
-                if(!placed){
-                    placeHexas(hexas);
-                    placed = true;
-                }
-                throw new Error("Hexagons placement error. Keeping current configuration");
-            }
-            found = true;
-        }
-    })
-}*/
-
 function placeHexas(hexas)
 {
+
     hexas.forEach(function (hexa1) {
         hexa1.hexa.animate({
-            left: hexa1.left+"px",
-            top: hexa1.top+"px"
-        });
+            left: hexa1.left + "px",
+        })
+        setTimeout(function () {
+            hexa1.hexa.animate({
+                left: hexa1.left+"px",
+                top: hexa1.top+"px"
+            }, 1000, function () {
+
+            });
+            if(hexa1.modified)
+            {
+                hexa1.hexa.css("background", "#FFFFFF")
+            }
+            hexa1.hexa.addClass("end");
+        }, (hexa1.step !== undefined)?hexa1.step*1:0)
     })
 }
-
-/*function isCollision(hexas) {
-    let collision = false;
-    hexas.forEach(function (h1) {
-        hexas.forEach(function (h2) {
-            if(circle_collision(h1, h2))
-            {
-                collision = true;
-            }
-        })
-    })
-
-    return collision;
-}*/

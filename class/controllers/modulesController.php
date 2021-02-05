@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
 if(isset($_GET["func"]))
 {
     if(function_exists($_GET["func"]))
@@ -28,78 +29,89 @@ function calcHexasPosition()
 {
     if(isset($_POST["hexas"]))
     {
+        $_SESSION["step"] = 0;
         $hexas = json_decode($_POST["hexas"]);
         resolveCollisions($hexas);
+        resolveBorders($hexas);
         echo json_encode($hexas);
     }
 }
 
 function resolveCollisions($hexas) {
-        while (isCollision($hexas))
+    while (isCollision($hexas))
+    {
+        foreach ($hexas as $hexa1)
         {
-            foreach ($hexas as $hexa1)
+            foreach ($hexas as $hex)
             {
-                foreach ($hexas as $hex)
+                if (\basics\Utils::circle_collision($hexa1, $hex))
                 {
-                    if (\basics\Utils::circle_collision($hexa1, $hex))
+                    $dx = abs($hexa1->left - $hex->left);
+                    $dr = $hexa1->radius + $hex->radius;
+
+                    if ($hexa1->top >= $hex->top)
                     {
-                        $dx = abs($hexa1->left - $hex->left);
-                        $dr = $hexa1->radius + $hex->radius;
+                        $dy = $hexa1->top - $hex->top;
 
-                        if ($hexa1->top >= $hex->top)
-                        {
-                            $dy = $hexa1->top - $hex->top;
+                        $ny = sqrt(abs($dr ^ 2 - $dx ^ 2 - $dy));
+                        $hexa1->top = $hexa1->top + $ny + 10;
+                        $hexa1->step = $_SESSION["step"];
+                    } else
+                    {
+                        $dy = $hex->top - $hexa1->top;
 
-                            $ny = sqrt(abs($dr ^ 2 - $dx ^ 2 - $dy));
-                            $hexa1->top = $hexa1->top + $ny + 10;
-                        } else
-                        {
-                            $dy = $hex->top - $hexa1->top;
-
-                            $ny = sqrt(abs($dr ^ 2 - $dx ^ 2 - $dy));
-                            $hex->top = $hex->top + $ny + 10;
-                        }
+                        $ny = sqrt(abs($dr ^ 2 - $dx ^ 2 - $dy));
+                        $hex->top = $hex->top + $ny + 10;
+                        $hex->step = $_SESSION["step"];
                     }
+
+                    $_SESSION["step"] = $_SESSION["step"] + 1;
                 }
             }
         }
+    }
 
-        foreach ($hexas as &$hexa)
+    foreach ($hexas as &$hexa)
+    {
+        if ($hexa->top + $hexa->radius * 2 >= $_POST["windows_height"])
         {
             $found = false;
-            if ($hexa->top + $hexa->radius * 2 >= $_POST["windows_height"])
+            do
             {
-                for($i = 0; $i < $_POST["windows_width"] - $hexa->radius*2; $i+=10)
-                {
-                    for($j = 0; $j < $_POST["windows_height"] - $hexa->radius*2; $j+=10)
-                    {
-                        $hexa->left = $i;
-                        $hexa->top = $j;
-                        if(!isCollision($hexas))
-                        {
-                            $found = true;
-                            break(2);
-                        }
-                    }
-                }
-                if(!$found)
-                {
-                    header("HTTP/1.1 500 Error stack overflow");
-                    echo json_encode($hexas);
-                    die();
-                }
+                $hexa->left = \basics\Utils::randInt(0, $_POST["windows_width"]-$hexa->radius*2);
+                $hexa->top = \basics\Utils::randInt(0, $_POST["windows_height"]-$hexa->radius*2);
 
-                /*try
+                if((!isCollision($hexas) && !$hexa->content && $hexa->left + $hexa->radius*2 < $_POST["windows_width"]) || (!isCollision($hexas) && $hexa->content && $hexa->left/$_POST["windows_width"]*100 >= 5 && $hexa->left/$_POST["windows_width"]*100 <= 90))
                 {
-                    resolveCollisions($hexas);
-                } catch (Exception $e)
-                {
-                    header("HTTP/1.1 500 Error stack overflow");
-                    die();
-                }*/
-                $found = true;
+                    $hexa->modified = true;
+                    $found = true;
+                    break(1);
+                }
+            }while(1==1);
+            if(!$found)
+            {
+                header("HTTP/1.1 500 Error stack overflow");
+                echo json_encode($hexas);
+                die();
             }
         }
+    }
+}
+
+function resolveBorders($hexas)
+{
+    foreach ($hexas as $hex)
+    {
+        if ($hex->left - $_POST["windows_width"]*0.06 < 0)
+        {
+            $hex->left = $_POST["windows_width"] * 0.06 - $hex->radius;
+        }
+    }
+
+    while(isCollision($hexas))
+    {
+        resolveCollisions($hexas);
+    }
 }
 
 function isCollision($hexas) {
@@ -114,15 +126,4 @@ function isCollision($hexas) {
     }
 
     return $collision;
-}
-
-function orderByLeft($a, $b) {
-    //retourner 0 en cas d'égalité
-    if ($a->left == $b->left) {
-        return 0;
-    } else if ($a->left < $b->left) {//retourner -1 en cas d’infériorité
-        return -1;
-    } else {//retourner 1 en cas de supériorité
-        return 1;
-    }
 }
