@@ -171,7 +171,7 @@ function placeHexas(hexas)
             });
             if(hexa1.modified)
             {
-                hexa1.hexa.css("background", "#FFFFFF")
+                //hexa1.hexa.css("background", "#FFFFFF")
             }
             hexa1.hexa.addClass("end");
         }, (hexa1.step !== undefined)?hexa1.step*1:0)
