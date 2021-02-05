@@ -83,29 +83,71 @@ $(document).ready(function () {
         }
     })
 
-    let hexas = [];
 
     $(".hexa_free").find(".hexagon").each(function () {
-        let left = randomIntFromInterval(0, 16);
-        let size = randomIntFromInterval(5,12);
-        $(this).css("left", left*2.5+"%");
-        $(this).css("height", size+'vw');
-        $(this).css("width", size+'vw');
-
-        let hexa = {
-            hexa: $(this),
-            left: $(this).position().left,
-            top: $(this).position().top,
-            radius : $(this).width()/2*1.01
-        }
-        hexas.push(hexa);
+        let size = randomIntFromInterval(5, 12);
+        $(this).css("height", size + 'vw');
+        $(this).css("width", size + 'vw');
     });
 
-    let i = 0;
+    let placed = false;
+    $(".hexagon").eq(0).one("transitionend webkitTransitionEnd", function(e){
+        if(!placed) {
+            placed = true;
+            let hexas = [];
+            let k = 0;
+            $(".hexa_free").find(".hexagon").each(function () {
 
+                let left = geoDist(1, 100, 0.8);
+
+                //$(this).css("left", left+"%");
+
+                let hexa = {
+                    hexa: $(this),
+                    k: k,
+                    left: left / 100 * $($(this).parent()).width(),
+                    top: $(this).position().top,
+                    radius: $(this).width() / 2 * 1.01
+                }
+                hexas.push(hexa);
+                k++;
+            });
+
+            //Ajax collision calc
+            calcPosition(hexas);
+        }
+    })
+});
+
+let calc = 0;
+
+function calcPosition(hexas)
+{
+    calc++;
+    ajaxRequest("POST", "class/controllers/modulesController.php?func=calcHexasPosition", function (data) {
+        let hexasParsed = JSON.parse(data);
+        hexasParsed.forEach(function (hexa, i) {
+            hexa.hexa = hexas[hexa.k].hexa;
+        })
+        placeHexas(hexasParsed);
+    }, "windows_height=" + $(window).height() + "&windows_width=" + $(window).width() + "&hexas=" + JSON.stringify(hexas), "", function (a, data) {
+        let hexasParsed = JSON.parse(data);
+        hexasParsed.forEach(function (hexa, i) {
+            hexa.hexa = hexas[hexa.k].hexa;
+        })
+        console.log(hexasParsed);
+        if(calc >= 10){placeHexas(hexasParsed);return;}
+        hexas.forEach(function (hexa, i) {
+            let left = geoDist(1, $(window).width(), 0.8);
+            hexas[i].left = left;
+        })
+        calcPosition(hexas);
+    })
+}
+
+/*function resolveCollisions(hexas, repeat) {
     while(isCollision(hexas))
     {
-        i++;
         hexas.forEach(function (hexa1, i1) {
             hexas.forEach(function(hex, i2){
                 if(circle_collision(hexa1, hex))
@@ -132,19 +174,41 @@ $(document).ready(function () {
         })
     }
 
-    console.log(isCollision(hexas))
 
-    let j = 0;
-    hexas.forEach(function (hexa1) {
-            hexa1.hexa.css({
-                left: hexa1.left+"px",
-                top: hexa1.top+"px"
-            });
-        j++;
+    let found = false;
+
+    hexas.forEach(function (hexa, i) {
+        if(hexa.top + hexa.radius*2 >= $(window).height() && !found)
+        {
+            let left = geoDist(0,100, 0.8);
+            hexas[i].top = 0;
+            hexas[i].left = left;
+            try {
+                resolveCollisions(hexas);
+            }
+            catch (ex) {
+                if(!placed){
+                    placeHexas(hexas);
+                    placed = true;
+                }
+                throw new Error("Hexagons placement error. Keeping current configuration");
+            }
+            found = true;
+        }
     })
-});
+}*/
 
-function isCollision(hexas) {
+function placeHexas(hexas)
+{
+    hexas.forEach(function (hexa1) {
+        hexa1.hexa.animate({
+            left: hexa1.left+"px",
+            top: hexa1.top+"px"
+        });
+    })
+}
+
+/*function isCollision(hexas) {
     let collision = false;
     hexas.forEach(function (h1) {
         hexas.forEach(function (h2) {
@@ -156,4 +220,4 @@ function isCollision(hexas) {
     })
 
     return collision;
-}
+}*/

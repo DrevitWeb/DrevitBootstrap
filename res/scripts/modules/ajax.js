@@ -20,7 +20,7 @@ function ajaxRequest(type, request, callback, data = null, formId="form", errorC
                 $("#"+formId).html(xhr.responseText);
                 break;
             default:
-                errorCallback(data, xhr.statusText);
+                errorCallback(data, xhr.responseText);
         }
     };
     // Send XML HTTP request.
