@@ -3,7 +3,7 @@ $(document).ready(function () {
     opened.css("z-index", 10000);
     setTimeout(function () {
         opened.css("z-index", 0);
-    }, 1500)
+    }, 500)
     $(".hexagon.move").addClass("animate")
     $(".hexagon.move").removeClass("opened");
     $(".hexagon.bordered").each(function () {
@@ -33,10 +33,17 @@ $(document).ready(function () {
     /*$("body").on("click", ".hexagon.animate", function (e) {*/
     $(".hexagon.animate").click( function (e) {
         if(!$(this).hasClass("opened")) {
-            console.log(this)
-            $(".hexagon.move").addClass("animate");
+            let opened = $(".hexagon.opened");
+            opened.addClass("moving");
+            opened.css("z-index", 10000);
+            setTimeout(function () {
+                $(".moving").css("z-index", 0);
+                opened.removeClass("moving");
+            }, 500)
             $(".hexagon.move").removeClass("opened");
+            $(".hexagon.move").addClass("animate");
             $(".hexagon.move").css("transform", "");
+
             $(this).removeClass("animate");
             e.preventDefault();
             let w = window.innerWidth;
@@ -73,10 +80,12 @@ $(document).ready(function () {
         if(!$(e.target).hasClass("hexagon") && !$(e.target).hasClass("border") && !$(e.target).parents('.hexagon').length)
         {
             let opened = $(".hexagon.opened");
+            opened.addClass("moving");
             opened.css("z-index", 10000);
             setTimeout(function () {
-                opened.css("z-index", 0);
-            }, 1500)
+                $(".moving").css("z-index", 0);
+                opened.removeClass("moving");
+            }, 500)
             $(".hexagon.move").removeClass("opened");
             $(".hexagon.move").addClass("animate");
             $(".hexagon.move").css("transform", "");
