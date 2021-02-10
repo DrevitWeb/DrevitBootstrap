@@ -43,4 +43,11 @@ class Slideshow
         $slidesArray = Database::query("SELECT * FROM slides WHERE slideshow = ?", array($this->token))->fetchAll();
         return Utils::setObjects($slidesArray, "modules\slideshow\Slide");
     }
+
+    public static function addSlide($imgPath, $description)
+    {
+        $token = Utils::generateRandomString(30);
+        $rank = Database::query("SELECT MAX(rank)+1 AS next FROM slides WHERE slideshow = ? GROUP BY slideshow")->fetch()->next;
+
+    }
 }
