@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 10 fév. 2021 à 10:44
+-- Généré le : mer. 10 fév. 2021 à 11:05
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `slides`;
 CREATE TABLE IF NOT EXISTS `slides` (
   `id` int NOT NULL AUTO_INCREMENT,
   `image` varchar(100) NOT NULL,
-  `rank` int NOT NULL,
+  `rg` int NOT NULL,
   `description` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `slideshow` varchar(30) NOT NULL,
   `token` varchar(30) NOT NULL,
