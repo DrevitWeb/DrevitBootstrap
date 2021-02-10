@@ -87,7 +87,7 @@ function resolveCollisions($hexas) {
                     $found = true;
                     break(1);
                 }
-            }while(1==1);
+            }while(1);
             if(!$found)
             {
                 header("HTTP/1.1 500 Error stack overflow");
@@ -114,13 +114,15 @@ function resolveBorders($hexas)
     }
 }
 
-function isCollision($hexas) {
+function isCollision($hexas): bool
+{
     $collision = false;
     foreach ($hexas as $h1) {
         foreach ($hexas as $h2) {
             if(\basics\Utils::circle_collision($h1, $h2))
             {
                 $collision = true;
+                break(2);
             }
         }
     }

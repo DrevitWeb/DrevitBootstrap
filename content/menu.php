@@ -28,4 +28,7 @@
     <br/>
     <a href="?p=slideshow" class="btn">Slideshow</a>
     <br>
+    <br/>
+    <a href="?p=hexagon_free" class="btn">Hexagon free</a>
+    <br>
 </div>

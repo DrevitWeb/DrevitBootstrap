@@ -9,7 +9,12 @@ $(document).ready(function () {
 
         $(this).find("img").each(function () {
             let img = $(this);
+            let desc = $(this).attr("desc");
             let slide = $("<div class='slide slide-"+i+" "+((first)?"active":"")+"'>"+img.prop('outerHTML')+"</div>")
+            if(desc)
+            {
+                slide.append($("<div class='desc'>"+desc+"</div>"));
+            }
             img.replaceWith(slide);
             i++;
             first = false;
