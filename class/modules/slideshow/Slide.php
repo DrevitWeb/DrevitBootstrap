@@ -7,7 +7,7 @@ use basics\Database;
 class Slide
 {
     public $image;
-    public $rank;
+    public $rg;
     public $description;
     public $slideshow;
 
@@ -21,11 +21,11 @@ class Slide
         $this->image = $image;
     }
 
-    public function getRank(){return $this->rank;}
-    public function setRank($rank)
+    public function getRg(){return $this->rg;}
+    public function setRg($rg)
     {
-        Database::modify("slide", "rank", $rank, $this->token);
-        $this->rank = $rank;
+        Database::modify("slide", "rg", $rg, $this->token);
+        $this->rg = $rg;
     }
 
     public function getDescription(){return $this->description;}

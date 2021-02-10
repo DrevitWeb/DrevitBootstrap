@@ -19,4 +19,9 @@ class SlideshowManager
         ));
         return Utils::setObject(Database::query("SELECT * FROM slideshows WHERE token=?", array($token))->fetch(), "modules\slideshow\Slideshow");
     }
+
+    public static function getSlideshowByToken($token)
+    {
+        return Utils::setObject(Database::query("SELECT * FROM slideshows WHERE token=?", array($token))->fetch(), "modules\slideshow\Slideshow");
+    }
 }

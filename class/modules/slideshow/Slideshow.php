@@ -44,10 +44,19 @@ class Slideshow
         return Utils::setObjects($slidesArray, "modules\slideshow\Slide");
     }
 
-    public static function addSlide($imgPath, $description)
+    public function addSlide($imgPath, $description)
     {
         $token = Utils::generateRandomString(30);
-        $rank = Database::query("SELECT rank FROM slides WHERE slideshow = ? ORDER BY rank DESC LIMIT 1")->fetch()->next;
+        $rank = Database::query("SELECT rg FROM slides WHERE slideshow = ? ORDER BY rg DESC LIMIT 1")->fetch();
 
+        $rank = ($rank)?$rank+1:0;
+
+        Database::query("INSERT INTO slides (image, rg, description, slideshow, token) VALUES (?,?,?,?,?)", array(
+            $imgPath,
+            $rank,
+            $description,
+            $this->token,
+            $token
+        ));
     }
 }
