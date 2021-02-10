@@ -47,7 +47,7 @@ class Slideshow
     public static function addSlide($imgPath, $description)
     {
         $token = Utils::generateRandomString(30);
-        $rank = Database::query("SELECT MAX(rank)+1 AS next FROM slides WHERE slideshow = ? GROUP BY slideshow")->fetch()->next;
+        $rank = Database::query("SELECT rank FROM slides WHERE slideshow = ? ORDER BY rank DESC LIMIT 1")->fetch()->next;
 
     }
 }
