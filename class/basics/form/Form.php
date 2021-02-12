@@ -71,7 +71,7 @@ class Form
 
     public function build()
     {
-        $form = "<form autocomplete='nope' class='classicForm $this->size' id='$this->id' method='$this->method' action='$this->action' enctype='multipart/form-data'>";
+        $form = "<form autocomplete='none' class='classicForm $this->size' id='$this->id' method='$this->method' action='$this->action' enctype='multipart/form-data'>";
         foreach ($this->inputs as $input)
         {
             if($input->getType() == "textarea")
@@ -91,19 +91,19 @@ class Form
             }
             else if($input->getType() == "hidden")
             {
-                $form .= "<input autocomplete='nope' value='{$input->getValue()}' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/>";
+                $form .= "<input autocomplete='none' value='{$input->getValue()}' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/>";
             }
             else if($input->getType() == "checkbox")
             {
-                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='nope' value='{$input->getValue()}' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
+                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='none' value='{$input->getValue()}' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
             }
             else if($input->getType() == "file")
             {
-                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='nope' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()} ".(($input->isMultiple())?"multiple":"")."'/></div>";
+                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='none' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}' ".(($input->isMultiple())?"multiple":"")."/></div>";
             }
             else if(!($input instanceof Select))
             {
-                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='nope' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
+                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='none' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
             }
             else
             {
@@ -135,7 +135,7 @@ class Form
 
     public function getFormCorrected()
     {
-        $form = "<form autocomplete='nope' class='classicForm $this->size' id='$this->id' method='$this->method' action='$this->action' enctype='multipart/form-data'>";
+        $form = "<form autocomplete='none' class='classicForm $this->size' id='$this->id' method='$this->method' action='$this->action' enctype='multipart/form-data'>";
         foreach ($this->inputs as $input)
         {
             if(isset($this->errors[$input->getName()]) && !empty(($this->errors[$input->getName()])))
@@ -158,11 +158,11 @@ class Form
             }
             else if($input->getType() == "hidden")
             {
-                $form .= "<input autocomplete='nope' value='".(($input->getType() != "password")?$input->getValue():"")."' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/>";
+                $form .= "<input autocomplete='none' value='".(($input->getType() != "password")?$input->getValue():"")."' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/>";
             }
             else if(!($input instanceof Select))
             {
-                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='nope' value='".(($input->getType() != "password")?str_replace("'", "&apos;",$input->getValue()):"")."' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
+                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='none' value='".(($input->getType() != "password")?str_replace("'", "&apos;",$input->getValue()):"")."' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
             }
             else
             {
