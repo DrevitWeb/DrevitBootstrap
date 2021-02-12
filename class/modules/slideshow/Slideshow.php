@@ -15,14 +15,14 @@ class Slideshow
     public function getName(){return $this->name;}
     public function setName($name)
     {
-        Database::modify("slideshow", "name", $name, $this->token);
+        Database::modify("slideshows", "name", $name, $this->token);
         $this->name = $name;
     }
 
     public function getType(){return $this->type;}
     public function setType($type)
     {
-        Database::modify("slideshow", "type", $type, $this->token);
+        Database::modify("slideshows", "type", $type, $this->token);
         $this->type = $type;
     }
 
