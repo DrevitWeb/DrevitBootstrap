@@ -378,18 +378,25 @@ $ClassicForm
 .classicForm {
   padding-left: 2.5%;
   width: 80%;
+  box-sizing: border-box;
+}
+.classicForm label {
+  width: 32%;
 }
 .classicForm .form-group {
   display: flex;
   align-items: center;
   width: 100%;
 }
+.classicForm .form-group label {
+  width: 35%;
+}
 .classicForm label {
   padding-right: 5%;
   box-sizing: border-box;
   margin-bottom: 3%;
-  width: 35%;
   text-align: right;
+  display: block;
 }
 .classicForm label + input {
   background: #dce2ff;
@@ -409,16 +416,17 @@ $ClassicForm
   background: #dce2ff;
   box-sizing: border-box;
   margin-bottom: 3%;
-  max-width: 100%;
-  width: 100%;
+  max-width: 68%;
+  width: 68%;
   border: solid 0;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
   height: 40vh;
   padding: 4%;
-  margin-left: 25%;
+  margin-left: 32%;
   font-size: 1.2vw;
+  box-sizing: border-box;
 }
 .classicForm label + .BBtextarea {
   max-width: 200%;

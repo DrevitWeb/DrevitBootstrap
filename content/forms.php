@@ -24,6 +24,8 @@ $head = "<title>Formulaires - Bootstrap</title>";
         <label for="text4">Any text</label>
         <input type="text" name="text4" id="text4"/>
     </div>
+    <label for="area">Text</label>
+    <textarea name="area" id="area"></textarea>
     <br/>
     <input class="center" type="submit" value="Valider" />
 </form>
