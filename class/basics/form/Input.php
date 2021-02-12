@@ -21,6 +21,8 @@ class Input
     private $equals = false;
     private $input = null;
 
+    private $multiple = false;
+
     private $value;
 
     public function __construct($type, $name, $displayName)
@@ -49,6 +51,13 @@ class Input
     public function setRequired($required = true)
     {
         $this->required = $required;
+        return $this;
+    }
+
+    public function isMultiple(){return $this->multiple;}
+    public function setMultiple($multiple = true)
+    {
+        $this->multiple = $multiple;
         return $this;
     }
 

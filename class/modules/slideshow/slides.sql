@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `slides` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `token` (`token`),
   KEY `slideshow` (`slideshow`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Contraintes pour les tables déchargées

@@ -78,6 +78,7 @@ class Form
             {
                 $form .= (($input->getDisplayName() != "")?"<label for='{$input->getName()}'>{$input->getDisplayName()}</label>":"")."<textarea name='{$input->getName()}' id='{$input->getName()}'></textarea>";
             }
+
             else if($input->getType() == "BBtextarea")
             {
                 $form .=
@@ -95,6 +96,10 @@ class Form
             else if($input->getType() == "checkbox")
             {
                 $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='nope' value='{$input->getValue()}' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()}'/></div>";
+            }
+            else if($input->getType() == "file")
+            {
+                $form .= "<div class='form-group'><label for='{$input->getName()}'>{$input->getDisplayName()}</label><input autocomplete='nope' type='{$input->getType()}' name='{$input->getName()}' id='{$input->getName()} ".(($input->isMultiple())?"multiple":"")."'/></div>";
             }
             else if(!($input instanceof Select))
             {
