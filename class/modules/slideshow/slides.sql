@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `slides` (
   `id` int NOT NULL AUTO_INCREMENT,
   `image` varchar(100) NOT NULL,
   `rg` int NOT NULL,
-  `description` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(300) CHARACTER SET utf32 COLLATE utf32_unicode_ci DEFAULT NULL,
   `slideshow` varchar(30) NOT NULL,
   `token` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),

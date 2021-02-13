@@ -1,8 +1,11 @@
 <div class="hexa_free">
     <?php
+
+    use basics\Maths;
+
     for ($i = 0; $i < 30; $i++)
     {
-        echo "<div class='hexagon ".((\basics\Utils::randInt(0,1))?"bordered":"")." ".((\basics\Utils::randInt(0,1))?"move":"")."'></div>";
+        echo "<div class='hexagon ".((Maths::randInt(0, 1))?"bordered":"")." ".((Maths::randInt(0, 1))?"move":"")."'></div>";
     }
     ?>
 </div>
