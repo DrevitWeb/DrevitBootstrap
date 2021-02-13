@@ -1,4 +1,7 @@
 <?php
+
+use basics\Maths;
+
 session_start();
 
 require "autoloader.php";
@@ -44,7 +47,7 @@ function resolveCollisions($hexas) {
         {
             foreach ($hexas as $hex)
             {
-                if (\basics\Utils::circle_collision($hexa1, $hex))
+                if (Maths::circle_collision($hexa1, $hex))
                 {
                     $dx = abs($hexa1->left - $hex->left);
                     $dr = $hexa1->radius + $hex->radius;
@@ -78,8 +81,8 @@ function resolveCollisions($hexas) {
             $found = false;
             do
             {
-                $hexa->left = \basics\Utils::randInt(0, $_POST["windows_width"]-$hexa->radius*2);
-                $hexa->top = \basics\Utils::randInt(0, $_POST["windows_height"]-$hexa->radius*2);
+                $hexa->left = Maths::randInt(0, $_POST["windows_width"] - $hexa->radius * 2);
+                $hexa->top = Maths::randInt(0, $_POST["windows_height"] - $hexa->radius * 2);
 
                 if((!isCollision($hexas) && !$hexa->content && $hexa->left + $hexa->radius*2 < $_POST["windows_width"]) || (!isCollision($hexas) && $hexa->content && $hexa->left/$_POST["windows_width"]*100 >= 5 && $hexa->left/$_POST["windows_width"]*100 <= 90))
                 {
@@ -114,12 +117,12 @@ function resolveBorders($hexas)
     }
 }
 
-function isCollision($hexas): bool
+function isCollision($hexas)
 {
     $collision = false;
     foreach ($hexas as $h1) {
         foreach ($hexas as $h2) {
-            if(\basics\Utils::circle_collision($h1, $h2))
+            if(Maths::circle_collision($h1, $h2))
             {
                 $collision = true;
                 break(2);

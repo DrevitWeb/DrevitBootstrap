@@ -96,6 +96,29 @@ class Utils
         return $success;
     }
 
+    static function processMultipleImages($dir, $arrayinput_name)
+    {
+        $total = count($_FILES[$arrayinput_name]['name']);
+
+        for( $i=0 ; $i < $total ; $i++ ) {
+
+            //Get the temp file path
+            $tmpFilePath = $_FILES[$arrayinput_name]['tmp_name'][$i];
+
+            //Make sure we have a file path
+            if ($tmpFilePath != ""){
+                //Setup our new file path
+                $newFilePath = $dir . $_FILES[$arrayinput_name]['name'][$i];
+
+                //Upload the file into the temp dir
+                if(move_uploaded_file($tmpFilePath, $newFilePath))
+                {
+
+                }
+            }
+        }
+    }
+
     static function setObject($array, $className)
     {
         if (class_exists($className))
@@ -137,11 +160,6 @@ class Utils
         return null;
     }
 
-    static function randInt($low, $up)
-    {
-        return rand($low, $up);
-    }
-
     static function getUserIpAddr()
     {
         if (!empty($_SERVER['HTTP_CLIENT_IP']))
@@ -155,27 +173,5 @@ class Utils
             $ip = $_SERVER['REMOTE_ADDR'];
         }
         return $ip;
-    }
-
-    static function circle_collision($h1, $h2) {
-        $dx = $h1->left + $h1->radius - $h2->left - $h2->radius;
-        $dy = $h1->top + $h1->radius - $h2->top - $h2->radius;
-        $distance = sqrt($dx * $dx + $dy * $dy);
-
-        return $distance < $h1->radius + $h2->radius && $h1 !== $h2;
-    }
-
-    static function geoDist($min, $max, $prob)
-    {
-        $q = 0;
-        $p = pow($prob, 1 / ($max - $min));
-        while (true)
-        {
-            $q = ceil(log(1 - rand(0, 1000) / 1000) / log($p)) + ($min - 1);
-            if ($q <= $max)
-            {
-                return $q;
-            }
-        }
     }
 }
