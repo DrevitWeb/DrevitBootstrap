@@ -20,7 +20,7 @@ $(document).ready(function () {
          if($(this).attr("desc"))
          {
              let description = $("<div class='description'></div>");
-             description.html($(this).attr("desc"));
+             description.html("<div>"+$(this).attr("desc")+"</div>");
              $(this).after(description);
          }
     });
@@ -89,7 +89,9 @@ $(document).ready(function () {
     });
 
     $("*").click(function (e) {
-        if(!$(e.target).hasClass("hexagon") && !$(e.target).hasClass("border") && !$(e.target).parents('.hexagon').length)
+        if((!$(e.target).hasClass("hexagon") && !$(e.target).hasClass("border") && !$(e.target).parents('.hexagon').length) ||
+            ($(e.target).hasClass("hexagon") && !$(e.target).hasClass("move")) ||
+            ($(e.target).parents(".hexagon").hasClass("hexagon") && !$(e.target).parents(".hexagon").hasClass("move")))
         {
             let opened = $(".hexagon.opened");
             opened.addClass("moving");

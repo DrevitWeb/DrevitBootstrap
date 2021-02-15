@@ -1166,7 +1166,7 @@ $Sliders
 .hexagon.opened > .openedContent, .hexagon.opened > .border > .openedContent {
   transition: all 0.5s;
   display: block;
-  transform: rotate(29deg);
+  transform: rotate(29deg) rotateY(180deg);
   width: 100%;
   height: 100%;
 }
@@ -1183,21 +1183,24 @@ $Sliders
   justify-content: center;
   align-items: center;
   background: #95a5a6;
-  transition: all 0.5s;
+  transition: all 1.5s;
   z-index: -1;
   right: 0;
   top: 150vh;
-  transform: translateY(-50%);
+  transform: translateY(-20%) rotate(-180deg);
 }
 
 .hexagon.opened + .description {
   opacity: 1;
   display: flex;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  top: 60%;
+  right: 8vw;
+  transform: translateY(-20%) rotate(29deg);
   z-index: 100000000;
-  transition: all 0.5s;
+  transition: all 1s;
+}
+.hexagon.opened + .description > div {
+  transform: rotate(-29deg);
 }
 
 @keyframes hexa-pulse {
@@ -2076,14 +2079,19 @@ $Sliders
 }
 .slideshow.tooltip .right-tip, .slideshow.tooltip .left-tip {
   position: absolute;
-  width: 2vw;
-  height: 2vw;
-  font-size: 2vw;
+  width: 1vw;
+  height: 1vw;
+  font-size: 1vw;
   font-weight: bolder;
   top: 50%;
   transform: translateY(-50%) scale(1, 1.5);
   text-align: center;
   cursor: pointer;
+  opacity: 0.2;
+  transition: opacity 0.5s;
+}
+.slideshow.tooltip .right-tip:hover, .slideshow.tooltip .left-tip:hover {
+  opacity: 1;
 }
 .slideshow.tooltip .right-tip {
   right: 0;
@@ -2188,9 +2196,12 @@ a, a:link, a:visited {
   text-decoration: none;
 }
 
-html, body, * {
+html, body {
   background: #1abc9c;
   margin: 0;
+}
+
+* {
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;

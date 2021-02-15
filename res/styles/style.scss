@@ -13,10 +13,14 @@
 @import "modules/slideshow";
 @import "modules/text";
 
-html, body, *
+html, body
 {
   background: #1abc9c;
   margin: 0;
+}
+
+*
+{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

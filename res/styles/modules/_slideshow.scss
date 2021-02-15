@@ -12,14 +12,21 @@
     .right-tip, .left-tip
     {
       position: absolute;
-      width: 2vw;
-      height: 2vw;
-      font-size: 2vw;
+      width: 1vw;
+      height: 1vw;
+      font-size: 1vw;
       font-weight: bolder;
       top: 50%;
       transform: translateY(-50%) scale(1, 1.5);
       text-align: center;
       cursor: pointer;
+      opacity: .2;
+      transition: opacity .5s;
+
+      &:hover
+      {
+        opacity: 1;
+      }
     }
 
     .right-tip
