@@ -88,7 +88,7 @@
 
 .hexagon + .description
 {
-  opacity: 0;
+  //opacity: 0;
   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   position: absolute;
   height: 20vw;
@@ -96,10 +96,11 @@
   justify-content: center;
   align-items: center;
   background: #95a5a6;
-  transition: none;
+  transition: all .5s;
   z-index: -1;
   right: 0;
-  bottom: 20vh;
+  top: 150vh;
+  transform: translateY(-50%);
 }
 
 .hexagon.opened + .description
