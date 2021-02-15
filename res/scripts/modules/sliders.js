@@ -1,48 +1,45 @@
 /*Fonction générale du Slider à 4 choix*/
 $('.slider4 .slider-value').each(function()
 {
-    var cls = $(this).attr('class'); //Nom de la classe
     $(this).parent().append('<div class="slider-widget"></div>'); //On ajoute l'élément slider
     $(this).parent().append('<div class="ui-slider-bottom"></div>'); //On ajoute le bas du slider
-    var elem = $(this).parent(); //On stocke l'élément contenant le slider
-    var options = {max: 3, orientation: "vertical", range: "min"}; //Options du slider
+    let elem = $(this).parent(); //On stocke l'élément contenant le slider
+    let options = {max: 3, orientation: "vertical", range: "min"}; //Options du slider
     elem.find('.slider-widget').slider(options); //Création du slider avec les options
 });
 
 /*Fonction générale du Slider à 3 choix*/
 $('.slider3 .slider-value').each(function()
 {
-    var cls = $(this).attr('class'); //Nom de la classe
     $(this).parent().append('<div class="slider-widget"></div>'); //On créé l'élément Slider
     $(this).parent().append('<div class="ui-slider-bottom"></div>'); //On ajoute le bas du slider
-    var elem = $(this).parent(); //Element contenant le Slider
-    var options = {max: 2, orientation: "vertical", range: "min"}; //Options du Slider
+    let elem = $(this).parent(); //Element contenant le Slider
+    let options = {max: 2, orientation: "vertical", range: "min"}; //Options du Slider
     elem.find('.slider-widget').slider(options); //On créé le Slider avec ses options
 });
 
 /*Fonction générale du Slider Gamme à 4 choix*/
 $('.range5.slider_range .slider-value').each(function()
 {
-    var cls = $(this).attr('class'); //Nom de la classe
     $(this).parent().append('<div class="slider-widget"></div>'); //On ajoute l'élément slider
-    var elem = $(this).parent(); //On stocke l'élément contenant le slider
-    var options = {max: 4, min: 0, values: [1, 3] , orientation: "vertical", range: true}; //Options du slider
+    let elem = $(this).parent(); //On stocke l'élément contenant le slider
+    let options = {max: 4, min: 0, values: [1, 3] , orientation: "vertical", range: true}; //Options du slider
     elem.find('.slider-widget').slider(options); //Création du slider avec les options
 });
 
 $('.slider4.classic').each(function()
 {
-    var custom = ".classic"; //Variable a définir pour un slider sur une page (ne pas oublier le .)
-    var elem = $(this); //Element contenant le Slider
+    let custom = ".classic"; //letiable a définir pour un slider sur une page (ne pas oublier le .)
+    let elem = $(this); //Element contenant le Slider
     elem.find('.slider-widget').slider(
     {
         /*Evenement changement du slider : on initialise la légende selon le choix actif*/
-        change: function(event, ui)
+        change: function()
         {
             updateFourSlider(elem, custom);
         },
 
-        slide: function(event, ui)
+        slide: function()
         {
             updateFourSlider(elem, custom);
         }
@@ -51,17 +48,17 @@ $('.slider4.classic').each(function()
 
 $('.slider3.classic').each(function()
 {
-    var custom = ".classic"; //Variable a définir pour un slider sur une page (ne pas oublier le .)
-    var elem = $(this); //Element contenant le Slider
+    let custom = ".classic"; //letiable a définir pour un slider sur une page (ne pas oublier le .)
+    let elem = $(this); //Element contenant le Slider
     elem.find('.slider-widget').slider(
     {
         /*Evenement changement du slider : on initialise la légende selon le choix actif*/
-        change: function(event, ui)
+        change: function()
         {
             updateThreeSlider(elem, custom);
         },
 
-        slide: function(event, ui)
+        slide: function()
         {
             updateThreeSlider(elem, custom);
         }
@@ -70,17 +67,17 @@ $('.slider3.classic').each(function()
 
 $('.slider4.arrow').each(function()
 {
-    var custom = ".arrow"; //Variable a définir pour un slider sur une page (ne pas oublier le .)
-    var elem = $(this); //Element contenant le Slider
+    let custom = ".arrow"; //letiable a définir pour un slider sur une page (ne pas oublier le .)
+    let elem = $(this); //Element contenant le Slider
     elem.find('.slider-widget').slider(
         {
             /*Evenement changement du slider : on initialise la légende selon le choix actif*/
-            change: function(event, ui)
+            change: function()
             {
                 updateFourSlider(elem, custom);
             },
 
-            slide: function(event, ui)
+            slide: function()
             {
                 updateFourSlider(elem, custom);
             }
@@ -89,17 +86,17 @@ $('.slider4.arrow').each(function()
 
 $('.slider3.arrow').each(function()
 {
-    var custom = ".arrow"; //Variable a définir pour un slider sur une page (ne pas oublier le .)
-    var elem = $(this); //Element contenant le Slider
+    let custom = ".arrow"; //letiable a définir pour un slider sur une page (ne pas oublier le .)
+    let elem = $(this); //Element contenant le Slider
     elem.find('.slider-widget').slider(
         {
             /*Evenement changement du slider : on initialise la légende selon le choix actif*/
-            change: function(event, ui)
+            change: function()
             {
                 updateThreeSlider(elem, custom);
             },
 
-            slide: function(event, ui)
+            slide: function()
             {
                 updateThreeSlider(elem, custom);
             }
@@ -108,8 +105,8 @@ $('.slider3.arrow').each(function()
 
 $('.ui-slider-bottom').click(function()
 {
-    var val = $(this).parent().find(".ui-slider").slider("value");
-    if(val != 0)
+    let val = $(this).parent().find(".ui-slider").slider("value");
+    if(val !== 0)
     {
         $(this).parent().find(".ui-slider").slider("value", val-1);
     }
@@ -117,8 +114,8 @@ $('.ui-slider-bottom').click(function()
 
 $('.slider4 .ui-slider-top').click(function()
 {
-    var val = $(this).parent().find(".ui-slider").slider("value");
-    if(val != 3)
+    let val = $(this).parent().find(".ui-slider").slider("value");
+    if(val !== 3)
     {
         $(this).parent().find(".ui-slider").slider("value", val+1);
     }
@@ -126,8 +123,8 @@ $('.slider4 .ui-slider-top').click(function()
 
 $('.slider3 .ui-slider-top').click(function()
 {
-    var val = $(this).parent().find(".ui-slider").slider("value");
-    if(val != 2)
+    let val = $(this).parent().find(".ui-slider").slider("value");
+    if(val !== 2)
     {
         $(this).parent().find(".ui-slider").slider("value", val+1);
     }
@@ -186,9 +183,9 @@ function updateFourSlider(slider, className)
 {
     window.setTimeout(function()
     {
-        var sel = slider.find('.slider-widget').slider("value"); //Valeur du slider
-        var input = slider.find(".slider-value");
-        if (sel == 3)
+        let sel = slider.find('.slider-widget').slider("value"); //Valeur du slider
+        let input = slider.find(".slider-value");
+        if (sel === 3)
         {
             $(className + ".slider.vertical.slider4 .feature1").addClass("active")
             $(className + ".slider.vertical.slider4 .feature2").removeClass("active")
@@ -196,7 +193,7 @@ function updateFourSlider(slider, className)
             $(className + ".slider.vertical.slider4 .feature4").removeClass("active")
             input.val($(className + ".slider.vertical.slider4 .feature1").attr("value"));
         }
-        if (sel == 2)
+        if (sel === 2)
         {
             $(className + ".slider.vertical.slider4 .feature1").removeClass("active")
             $(className + ".slider.vertical.slider4 .feature2").addClass("active")
@@ -204,7 +201,7 @@ function updateFourSlider(slider, className)
             $(className + ".slider.vertical.slider4 .feature4").removeClass("active")
             input.val($(className + ".slider.vertical.slider4 .feature2").attr("value"));
         }
-        if (sel == 1)
+        if (sel === 1)
         {
             $(className + ".slider.vertical.slider4 .feature1").removeClass("active")
             $(className + ".slider.vertical.slider4 .feature2").removeClass("active")
@@ -212,7 +209,7 @@ function updateFourSlider(slider, className)
             $(className + ".slider.vertical.slider4 .feature4").removeClass("active")
             input.val($(className + ".slider.vertical.slider4 .feature3").attr("value"));
         }
-        if (sel == 0)
+        if (sel === 0)
         {
             $(className + ".slider.vertical.slider4 .feature1").removeClass("active")
             $(className + ".slider.vertical.slider4 .feature2").removeClass("active")
@@ -227,24 +224,24 @@ function updateThreeSlider(slider, className)
 {
     window.setTimeout(function()
     {
-        var sel = slider.find('.slider-widget').slider("value"); //Valeur du slider
-        var input = slider.find(".slider-value");
+        let sel = slider.find('.slider-widget').slider("value"); //Valeur du slider
+        let input = slider.find(".slider-value");
 
-        if (sel == 2)
+        if (sel === 2)
         {
             $(className + ".slider.vertical.slider3 .feature1").addClass("active")
             $(className + ".slider.vertical.slider3 .feature2").removeClass("active")
             $(className + ".slider.vertical.slider3 .feature3").removeClass("active")
             input.val($(className + ".slider.vertical.slider3 .feature1").attr("value"));
         }
-        if (sel == 1)
+        if (sel === 1)
         {
             $(className + ".slider.vertical.slider3 .feature1").removeClass("active")
             $(className + ".slider.vertical.slider3 .feature2").addClass("active")
             $(className + ".slider.vertical.slider3 .feature3").removeClass("active")
             input.val($(className + ".slider.vertical.slider3 .feature2").attr("value"));
         }
-        if (sel == 0)
+        if (sel === 0)
         {
             $(className + ".slider.vertical.slider3 .feature1").removeClass("active")
             $(className + ".slider.vertical.slider3 .feature2").removeClass("active")

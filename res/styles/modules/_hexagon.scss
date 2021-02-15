@@ -3,7 +3,7 @@
   height: 10vw;
   background: #292929;
   overflow: hidden;
-  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  //clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   box-sizing: border-box;
   position: relative;
@@ -84,6 +84,33 @@
 .hexagon.opened>.iconContent, .hexagon.opened>.border>.iconContent
 {
   display: none;
+}
+
+.hexagon + .description
+{
+  opacity: 0;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  position: absolute;
+  height: 20vw;
+  width: 20vw;
+  justify-content: center;
+  align-items: center;
+  background: #95a5a6;
+  transition: none;
+  z-index: -1;
+  right: 0;
+  bottom: 20vh;
+}
+
+.hexagon.opened + .description
+{
+  opacity: 1;
+  display: flex;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 100000000;
+  transition: all .5s;
 }
 
 @keyframes hexa-pulse {

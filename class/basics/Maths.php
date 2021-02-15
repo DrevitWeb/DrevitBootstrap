@@ -6,7 +6,7 @@ namespace basics;
 
 class Maths
 {
-    public static function circle_collision($h1, $h2)
+    public static function circle_collision($h1, $h2) : bool
     {
         $dx = $h1->left + $h1->radius - $h2->left - $h2->radius;
         $dy = $h1->top + $h1->radius - $h2->top - $h2->radius;
@@ -15,12 +15,12 @@ class Maths
         return $distance < $h1->radius + $h2->radius && $h1 !== $h2;
     }
 
-    public static function randInt($low, $up)
+    public static function randInt($low, $up) : int
     {
         return rand($low, $up);
     }
 
-    public static function geoDist($min, $max, $prob)
+    public static function geoDist($min, $max, $prob) : float
     {
         $q = 0;
         $p = pow($prob, 1 / ($max - $min));

@@ -13,7 +13,7 @@ class Session
         }
     }
 
-    static function set($index, $content)
+    static function set($index, $content) : void
     {
 
         $_SESSION[$index] = $content;
@@ -26,12 +26,12 @@ class Session
         return null;
     }
 
-    static public function destroy($index)
+    static public function destroy($index) : void
     {
         unset($_SESSION[$index]);
     }
 
-    static function setAlert($type, $message)
+    static function setAlert($type, $message) : void
     {
         if(!isset($_SESSION["alerts"]) || empty($_SESSION["alerts"]))
         {
@@ -44,7 +44,7 @@ class Session
         array_push($_SESSION["alerts"][$type], $message);
     }
 
-    static function getAlerts()
+    static function getAlerts() : array
     {
         if(!isset($_SESSION["alerts"]) || empty($_SESSION["alerts"]))
         {
@@ -62,7 +62,7 @@ class Session
         return Session::get("alerts");
     }
 
-    static function clearAlerts()
+    static function clearAlerts() : void
     {
         $_SESSION["alerts"] = array();
         $_SESSION["alerts"]["errors"] = array();

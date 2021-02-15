@@ -11,26 +11,24 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-if(isset($_GET["func"]))
+if (isset($_GET["func"]))
 {
-    if(function_exists($_GET["func"]))
+    if (function_exists($_GET["func"]))
     {
 
         $_GET["func"]();
-    }
-    else
+    } else
     {
         header("HTTP/1.1 401 Unauthorized function not found");
     }
-}
-else
+} else
 {
     header("HTTP/1.1 401 Unauthorized no function provided");
 }
 
-function calcHexasPosition()
+function calcHexasPosition() : void
 {
-    if(isset($_POST["hexas"]))
+    if (isset($_POST["hexas"]))
     {
         $_SESSION["step"] = 0;
         $hexas = json_decode($_POST["hexas"]);
@@ -40,7 +38,8 @@ function calcHexasPosition()
     }
 }
 
-function resolveCollisions($hexas) {
+function resolveCollisions($hexas) : void
+{
     while (isCollision($hexas))
     {
         foreach ($hexas as $hexa1)
@@ -84,14 +83,14 @@ function resolveCollisions($hexas) {
                 $hexa->left = Maths::randInt(0, $_POST["windows_width"] - $hexa->radius * 2);
                 $hexa->top = Maths::randInt(0, $_POST["windows_height"] - $hexa->radius * 2);
 
-                if((!isCollision($hexas) && !$hexa->content && $hexa->left + $hexa->radius*2 < $_POST["windows_width"]) || (!isCollision($hexas) && $hexa->content && $hexa->left/$_POST["windows_width"]*100 >= 5 && $hexa->left/$_POST["windows_width"]*100 <= 90))
+                if ((!isCollision($hexas) && !$hexa->content && $hexa->left + $hexa->radius * 2 < $_POST["windows_width"]) || (!isCollision($hexas) && $hexa->content && $hexa->left / $_POST["windows_width"] * 100 >= 5 && $hexa->left / $_POST["windows_width"] * 100 <= 90))
                 {
                     $hexa->modified = true;
                     $found = true;
                     break(1);
                 }
-            }while(1);
-            if(!$found)
+            } while (1);
+            if (!$found)
             {
                 header("HTTP/1.1 500 Error stack overflow");
                 echo json_encode($hexas);
@@ -101,28 +100,30 @@ function resolveCollisions($hexas) {
     }
 }
 
-function resolveBorders($hexas)
+function resolveBorders($hexas): void
 {
     foreach ($hexas as $hex)
     {
-        if ($hex->left - $_POST["windows_width"]*0.06 < 0)
+        if ($hex->left - $_POST["windows_width"] * 0.06 < 0)
         {
             $hex->left = $_POST["windows_width"] * 0.06 - $hex->radius;
         }
     }
 
-    while(isCollision($hexas))
+    while (isCollision($hexas))
     {
         resolveCollisions($hexas);
     }
 }
 
-function isCollision($hexas)
+function isCollision($hexas): bool
 {
     $collision = false;
-    foreach ($hexas as $h1) {
-        foreach ($hexas as $h2) {
-            if(Maths::circle_collision($h1, $h2))
+    foreach ($hexas as $h1)
+    {
+        foreach ($hexas as $h2)
+        {
+            if (Maths::circle_collision($h1, $h2))
             {
                 $collision = true;
                 break(2);

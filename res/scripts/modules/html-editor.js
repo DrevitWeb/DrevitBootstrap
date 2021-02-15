@@ -29,9 +29,9 @@ $(document).ready(function() {
 /***********************************************************\
  $Evénements listeners
 \***********************************************************/
-
+let fontSizeButton = $("#font-size");
 /*Lorsque l'on fait une selection de texte avec le curseur*/
-$("#font-size").focus(function () {
+fontSizeButton.focus(function () {
     if(!sizeFocused)
     {
         sizeFocused = true;
@@ -40,12 +40,12 @@ $("#font-size").focus(function () {
 });
 
 /*Lorsque l'on lache une selection*/
-$("#font-size").blur(function () {
+fontSizeButton.blur(function () {
     sizeFocused = false;
 });
 
 /*Lorsque la taille de texte est changée*/
-$("#font-size").change(function () {
+fontSizeButton.change(function () {
     restoreSelection(sizeSelection);
     let viewport = $( window ).width();
     document.execCommand("formatblock", false, "p");
@@ -291,7 +291,7 @@ function addColumn(editable)
 
     c1.resizable({
         handles: 'e, w',
-        resize: function (e, ui) {
+        resize: function (e) {
             let w = c1.width();
             let parent = e.target.parentNode;
 
@@ -319,7 +319,7 @@ function appendNewTabButton()
     let appendTab = $("<div class='addBlock'></div>");
     let appendButton = $('<i class="far fa-2x fa-plus-square" id="undo" aria-hidden="true" title="Nouveau bloc"></i>');
     appendTab.append(appendButton);
-    appendButton.click(function (ev) {
+    appendButton.click(function () {
         appendTab.remove();
         appendNewTab();
         appendNewTabButton();
@@ -411,7 +411,7 @@ function popup(type)
 
             let focus = false;
             let selection;
-            link.focus(function (ev) {
+            link.focus(function () {
                 if(!focus)
                 {
                     focus = true;
@@ -429,7 +429,7 @@ function popup(type)
             break;
     }
 
-    $("#content-edit").click(function (ev) {
+    content.click(function (ev) {
         if(!popup.is(ev.target) && popup.has(ev.target).length === 0)
         {
             $('#popup').html("");
@@ -575,7 +575,7 @@ function resizeAll()
     });
 }
 
-function formatAll()
+/*function formatAll()
 {
     $(".imgResizable").each(function () {
         $(this).children().each(function(){
@@ -590,9 +590,7 @@ function formatAll()
         let pW = $(this.parentNode).width();
         let ratio = (w/pW)*100;
 
-        let vh = $("#content-edit").width();
         let h = $(this).height();
-        let hRatio = (h/vh)*100;
 
         let rate = w/h;
 
@@ -613,9 +611,7 @@ function formatAll()
         let pW = $(this.parentNode).width();
         let ratio = (w/pW)*100;
 
-        let vh = $(window).height();
         let h = $(this).height();
-        let hRatio = (h/vh)*100;
 
         let rate = w/h;
 
@@ -645,7 +641,7 @@ function formatAll()
     $(".newColumn").remove();
 
     $(".addBlock").remove();
-
-    $(".tab").find(".tabmenu").remove();
-    $(".tab").find(".tab_menu").remove();
-}
+    let tab = $(".tab");
+    tab.find(".tabmenu").remove();
+    tab.find(".tab_menu").remove();
+}*/

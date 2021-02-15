@@ -112,7 +112,7 @@ class Form
                 $form .= "<option disabled selected>---</option>";
                 foreach ($input->getOptions() as $option => $value)
                 {
-                    $form .= "<option ".(($input->getSelected() == $option)?"selected":"")."value='$option'>$value</option>";
+                    $form .= "<option ".(($input->getSelected() == $option)?"selected":"")." value='$option'>$value</option>";
                 }
                 $form .= "</select></div>";
             }
@@ -144,7 +144,7 @@ class Form
             }
             if($input->getType() == "textarea")
             {
-                $form .= "<label for='{$input->getName()}'>{$input->getDisplayName()}</label><textarea value='' name='{$input->getName()}' id='{$input->getName()}'>".(($input->getType() != "password")?$input->getValue():"")."</textarea>";
+                $form .= "<label for='{$input->getName()}'>{$input->getDisplayName()}</label><textarea name='{$input->getName()}' id='{$input->getName()}'>".(($input->getType() != "password")?$input->getValue():"")."</textarea>";
             }
             else if($input->getType() == "BBtextarea")
             {

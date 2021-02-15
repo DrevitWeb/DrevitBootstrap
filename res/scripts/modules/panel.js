@@ -1,9 +1,10 @@
 /*Panels*/
 
 $(document).ready(function(){
-    $(".slide_panel").css("position", "absolute");
-    $(".slide_panel").addClass("closed");
-    $(".slide_panel").each(function () {
+    let panel = $(".slide_panel");
+    panel.css("position", "absolute");
+    panel.addClass("closed");
+    panel.each(function () {
         let panel = $(this);
         let button = $("<div class='panel_button'><div class=\"hamburger hamburger-draw\">\n" +
             "        <svg x=\"0\" y=\"0\" width=\"54px\" height=\"54px\" viewBox=\"0 0 54 54\">\n" +

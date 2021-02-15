@@ -4,8 +4,11 @@ $(document).ready(function () {
     setTimeout(function () {
         opened.css("z-index", 0);
     }, 500)
-    $(".hexagon.move").addClass("animate")
-    $(".hexagon.move").removeClass("opened");
+
+    let moveableHexas = $(".hexagon.move");
+
+    moveableHexas.addClass("animate")
+    moveableHexas.removeClass("opened");
     $(".hexagon.bordered").each(function () {
         let hc = $(this).html();
         let content = $("<div class='border'></div>");
@@ -13,6 +16,14 @@ $(document).ready(function () {
         $(this).html("");
         $(this).append(content);
     })
+    moveableHexas.each(function () {
+         if($(this).attr("desc"))
+         {
+             let description = $("<div class='description'></div>");
+             description.html($(this).attr("desc"));
+             $(this).after(description);
+         }
+    });
 
 
     $(".left").each(function(){
@@ -40,9 +51,10 @@ $(document).ready(function () {
                 $(".moving").css("z-index", 0);
                 opened.removeClass("moving");
             }, 500)
-            $(".hexagon.move").removeClass("opened");
-            $(".hexagon.move").addClass("animate");
-            $(".hexagon.move").css("transform", "");
+            let hexasMoveable = $(".hexagon.move");
+            hexasMoveable.removeClass("opened");
+            hexasMoveable.addClass("animate");
+            hexasMoveable.css("transform", "");
 
             $(this).removeClass("animate");
             e.preventDefault();
@@ -86,9 +98,10 @@ $(document).ready(function () {
                 $(".moving").css("z-index", 0);
                 opened.removeClass("moving");
             }, 500)
-            $(".hexagon.move").removeClass("opened");
-            $(".hexagon.move").addClass("animate");
-            $(".hexagon.move").css("transform", "");
+            let hexasMoveable = $(".hexagon.move");
+            hexasMoveable.removeClass("opened");
+            hexasMoveable.addClass("animate");
+            hexasMoveable.css("transform", "");
         }
     })
 
@@ -101,7 +114,7 @@ $(document).ready(function () {
     });
 
     let placed = false;
-    setTimeout(function(e){
+    setTimeout(function(){
         if(!placed) {
             placed = true;
             let hexas = [];
@@ -143,13 +156,13 @@ function calcPosition(hexas)
     calc++;
     ajaxRequest("POST", "class/controllers/modulesController.php?func=calcHexasPosition", function (data) {
         let hexasParsed = JSON.parse(data);
-        hexasParsed.forEach(function (hexa, i) {
+        hexasParsed.forEach(function (hexa) {
             hexa.hexa = hexas[hexa.k].hexa;
         })
         placeHexas(hexasParsed);
     }, "windows_height=" + $(window).height() + "&windows_width=" + $(window).width() + "&hexas=" + JSON.stringify(hexas), "", function (a, data) {
         let hexasParsed = JSON.parse(data);
-        hexasParsed.forEach(function (hexa, i) {
+        hexasParsed.forEach(function (hexa) {
             hexa.hexa = hexas[hexa.k].hexa;
         })
         console.log(hexasParsed);
@@ -176,7 +189,9 @@ function placeHexas(hexas)
                 left: hexa1.left+"px",
                 top: hexa1.top+"px"
             }, 1000, function () {
-
+                let description = $(this).next(".description");
+                //description.css("left", this.offsetLeft+"px")
+                //description.css("top", this.offsetTop+"px")
             });
             if(hexa1.modified)
             {

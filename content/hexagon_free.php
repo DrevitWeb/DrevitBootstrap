@@ -6,7 +6,7 @@
 
     for ($i = 0; $i < 30; $i++)
     {
-        echo "<div class='hexagon ".((Maths::randInt(0, 1))?"bordered":"")." ".((Maths::randInt(0, 1))?"move":"")."'></div>";
+        echo "<div class='hexagon ".((Maths::randInt(0, 1))?"bordered":"")." ".((Maths::randInt(0, 1))?"move":"")."' desc='TESTAAAAAAAAA<br/>Test aaaa'></div>";
     }
     ?>
 </div>

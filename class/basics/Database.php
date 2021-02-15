@@ -5,6 +5,7 @@ namespace basics;
 
 use PDO;
 use PDOException;
+use PDOStatement;
 
 class Database{
     //Instance de la BDD
@@ -19,7 +20,7 @@ class Database{
      *
      * @return PDO
      */
-    public static function connect()
+    public static function connect() : Database
     {
         try
         {
@@ -43,7 +44,7 @@ class Database{
      *
      * @param $pdo
      */
-    public static function disconnect(&$pdo)
+    public static function disconnect(&$pdo) : void
     {
         $pdo = null;
     }
@@ -55,7 +56,7 @@ class Database{
      * @param array|bool $params Paramètres de la requête
      * @return PDOStatement
      */
-    public static function query($query, $params = false)
+    public static function query($query, $params = false) : ?\PDOStatement
     {
         $pdo = Database::connect();
         try
@@ -89,7 +90,7 @@ class Database{
      * @param $value
      * @param $token
      */
-    public static function modify($table, $var, $value, $token)
+    public static function modify($table, $var, $value, $token) : void
     {
         Database::query("UPDATE $table SET $var = ? WHERE token = '$token'", array($value));
     }
@@ -102,7 +103,7 @@ class Database{
      * @param $value
      * @param $token
      */
-    public static function modifyUser($table, $var, $value, $token)
+    public static function modifyUser($table, $var, $value, $token) : void
     {
         if($value==NULL)
         {
@@ -121,7 +122,7 @@ class Database{
      * @param $var_condition
      * @param $value
      */
-    public static function trash($table, $var_condition, $value)
+    public static function trash($table, $var_condition, $value) : void
     {
         $req = Database::query("SELECT * FROM $table WHERE $var_condition = '$value'")->fetch();
         $trashed = addslashes(serialize($req));

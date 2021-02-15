@@ -4,11 +4,9 @@
 namespace basics;
 
 
-use PHPMailer\Exception;
-
 class Utils
 {
-    static function debug_to_console($data)
+    static function debug_to_console($data) : void
     {
         $output = $data;
         if (is_array($output))
@@ -17,32 +15,32 @@ class Utils
         echo "<script>console.log( 'PHP Debug: " . $output . "' );</script>";
     }
 
-    static function cryptPassword($login, $password)
+    static function cryptPassword($login, $password) : string
     {
         return hash('sha512', $login . $password . "8n7WF3CayidE9Jg9Nd83");
     }
 
-    static function generateRandomString($length)
+    static function generateRandomString($length) : string
     {
         $chars = "azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN1234567890";
         $str = substr(str_shuffle(str_repeat($chars, 60)), 0, $length);
         return $str;
     }
 
-    static function redirect($page)
+    static function redirect($page) : void
     {
         header("Location: " . $page);
         die();
     }
 
-    static function parseBBCODE($text)
+    static function parseBBCODE($text) : string
     {
         $text = html_entity_decode($text);
         $translator = array(
             '\[b\](.*?)\[\/b\]' => '<strong>$1</strong>',
             '\[i\](.*?)\[\/i\]' => '<i>$1</i>',
             '\[u\](.*?)\[\/u\]' => '<u>$1</u>',
-            '\[center\](.*?)\[\/center\]' => '<center>$1</center>',
+            '\[center\](.*?)\[\/center\]' => '<div class="center">$1</div>',
             '\[img\](.*?)\[\/img\]' => '<img src="$1" style="max-width: 50%; height: auto;" />',
             '\[video=(.*?):\/\/youtu.be\/(.*?)\]\[\/video\]' => '<object type="application/x-shockwave-flash" width="560" height="315" data="https://www.youtube.com/v/$2"> <param name="movie" value="https://www.youtube.com/v/$2" /> <param name="allowFullScreen" value="true" /> </object>',
             '\[video=(.*?):\/\/www.youtube\.com\/watch\?v=(.*?)\]\[\/video\]' => '<object type="application/x-shockwave-flash" width="560" height="315" data="https://www.youtube.com/v/$2"> <param name="movie" value="https://www.youtube.com/v/$2" /> <param name="allowFullScreen" value="true" /> </object>',
@@ -69,10 +67,10 @@ class Utils
         return $text;
     }
 
-    public static function convertToBBCODE($content)
+    public static function convertToBBCODE($content) : string
     {
         $ncontent = str_ireplace("\n", "", $content); //Enlève les \n du html
-        $ncontent = str_ireplace("\r", "", $content); //Enlève les \n du html
+        $ncontent = str_ireplace("\r", "", $ncontent); //Enlève les \n du html
         $ncontent = preg_replace("/<span class=\"rpblock (\w*)\"[^<]+<\/span>/", "[rp=$1]", $ncontent);
         $ncontent = preg_replace("/<div(.*?)>(.*?)<\/div>/s", "$2", $ncontent);
         $ncontent = preg_replace("/<font(.*?)>(.*?)<\/font>/s", "$2", $ncontent);
@@ -111,10 +109,7 @@ class Utils
                 $newFilePath = $dir . $_FILES[$arrayinput_name]['name'][$i];
 
                 //Upload the file into the temp dir
-                if(move_uploaded_file($tmpFilePath, $newFilePath))
-                {
-
-                }
+                move_uploaded_file($tmpFilePath, $newFilePath);
             }
         }
     }
@@ -143,7 +138,7 @@ class Utils
         return null;
     }
 
-    static function setObjects($array, $className)
+    static function setObjects($array, $className) : ?array
     {
         if (class_exists($className))
         {
@@ -160,7 +155,7 @@ class Utils
         return null;
     }
 
-    static function getUserIpAddr()
+    static function getUserIpAddr() : string
     {
         if (!empty($_SERVER['HTTP_CLIENT_IP']))
         {

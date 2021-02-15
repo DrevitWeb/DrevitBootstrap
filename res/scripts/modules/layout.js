@@ -71,7 +71,7 @@ $(".btn").click(function(e){
         })
         $('#btnCrop').on('click', function(){
             var img = cropper.getDataURL();
-            $('.cropped').append('<img src="'+img+'">');
+            $('.cropped').append('<img src="'+img+'" alt="cropped">');
             $("input#avatar").val(img);
         })
         $('#btnZoomIn').on('click', function(){
