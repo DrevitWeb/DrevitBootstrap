@@ -2103,6 +2103,8 @@ $Sliders
   width: 100%;
   height: 100%;
   position: relative;
+  background-size: cover;
+  background-position: center;
 }
 .slideshow .slide img {
   width: 100%;

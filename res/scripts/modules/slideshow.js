@@ -10,7 +10,9 @@ $(document).ready(function () {
         $(this).find("img").each(function () {
             let img = $(this);
             let desc = $(this).attr("desc");
-            let slide = $("<div class='slide slide-"+i+" "+((first)?"active":"")+"'>"+img.prop('outerHTML')+"</div>")
+            let src = img.attr("src");
+            let slide = $("<div class='slide slide-"+i+" "+((first)?"active":"")+"'></div>")
+            slide.css("background-image", "url(" + src + ")");
             if(desc)
             {
                 slide.append($("<div class='desc'>"+desc+"</div>"));
