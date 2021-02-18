@@ -12,6 +12,7 @@ $(document).ready(function () {
             let desc = $(this).attr("desc");
             let src = img.attr("src");
             let slide = $("<div class='slide slide-"+i+" "+((first)?"active":"")+"'></div>")
+            console.log(src);
             slide.css("background-image", "url(" + src + ")");
             if(desc)
             {
