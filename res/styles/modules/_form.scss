@@ -2,8 +2,7 @@
 $ClassicForm
 /****************************************/
 .classicForm {
-  padding-left: 2.5%;
-  width: 80%;
+
   box-sizing: border-box;
 
   label
@@ -18,6 +17,11 @@ $ClassicForm
     label
     {
       width: 35%;
+    }
+
+    input
+    {
+      font-size: 1.1vw;
     }
   }
 
@@ -83,6 +87,7 @@ $ClassicForm
       cursor: pointer;
       clear: both;
       float: right;
+      font-size: 1.1vw;
     }
 
     &[type=file] {
@@ -90,7 +95,6 @@ $ClassicForm
     }
 
     &[type=password] {
-      font-size: .6em;
       padding: .2em 2%;
     }
 

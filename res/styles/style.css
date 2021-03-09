@@ -272,13 +272,13 @@ $Sliders
 \*****************************************************************/
 a.btn {
   cursor: pointer;
-  padding: 0 30px;
+  padding: 0 2.5%;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 0.91em;
-  min-height: 42px;
+  font-size: 1vw;
+  min-height: 4vh;
   display: inline-block;
-  line-height: 42px;
+  line-height: 4vh;
   background: #3498db;
   white-space: normal;
   margin: auto;
@@ -286,11 +286,11 @@ a.btn {
 }
 
 a.btn.round {
-  border-radius: 21px;
+  border-radius: 2vh;
 }
 
 a.btn.rounded {
-  border-radius: 7px;
+  border-radius: 0.6666666667vh;
 }
 
 a.btn:visited, a.btn:link {
@@ -376,8 +376,6 @@ a.btn.style5:hover {
 $ClassicForm
 /****************************************/
 .classicForm {
-  padding-left: 2.5%;
-  width: 80%;
   box-sizing: border-box;
 }
 .classicForm label {
@@ -390,6 +388,9 @@ $ClassicForm
 }
 .classicForm .form-group label {
   width: 35%;
+}
+.classicForm .form-group input {
+  font-size: 1.1vw;
 }
 .classicForm label {
   padding-right: 5%;
@@ -446,12 +447,12 @@ $ClassicForm
   cursor: pointer;
   clear: both;
   float: right;
+  font-size: 1.1vw;
 }
 .classicForm input[type=file] {
   font-size: 0.5em;
 }
 .classicForm input[type=password] {
-  font-size: 0.6em;
   padding: 0.2em 2%;
 }
 .classicForm input:-webkit-autofill {
