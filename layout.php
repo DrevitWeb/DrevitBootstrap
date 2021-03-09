@@ -58,4 +58,13 @@
             ?>
 		</main>
 	</body>
+
+    <!-- Fading out when click on alerts -->
+    <script>
+        $(".alert").click(function (ev) {
+            $(ev.target).fadeOut(400, function () {
+                $(ev.target).remove();
+            })
+        });
+    </script>
 </html>
